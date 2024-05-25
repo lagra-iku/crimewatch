@@ -6,12 +6,13 @@ import bcrypt
 from .models import AddNewOfficer
 from django.contrib.auth import login, logout
 from django.contrib import messages
-
+from django.http import HttpResponse, loader
 dat = datetime.now()
 date = dat.strftime("%Y")
 
 def app(request):
-    return render(request, 'dashboard.html')
+  template = loader.get_template('pages/dashboard.html')
+  return HttpResponse(template.render())
 
 def whistledown(request):
     return render(request, 'ladywhistledown.html')
