@@ -38,8 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
-    'heroicons'
-]
+    'heroicons',
+    'crimewatch',
+    ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
