@@ -1,13 +1,19 @@
 from django.db import models
 import random
 import string
-
+import bcrypt
 
 def generate_case_number():
     """Helper function to generate a random case number for a criminal record"""
     letters = string.ascii_letters
     numbers = string.digits
     return ''.join(random.choices(letters, k=2)) + ''.join(random.choices(numbers, k=6))
+
+def generate_random_password(length=8):
+    """Generate a random password with letters and digits"""
+    symbols = string.punctuation
+    characters = string.ascii_letters + string.digits + symbols
+    return ''.join(random.choices(characters, k=length))
 
 class PoliceOfficers(models.Model):
     """Police Officer's personal information Class"""
@@ -23,7 +29,6 @@ class PoliceOfficers(models.Model):
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
     nationality = models.CharField(max_length=255, default="Nigerian")
-    # profile_picture = models.ImageField(upload_to='images/')
 
     def __str__(self):
         return f"{self.name}, Rank: {self.rank}, Badge Number: {self.badge_number}, Area: {self.area}"
@@ -35,17 +40,19 @@ class AddNewOfficer(models.Model):
     surname = models.CharField(max_length=255)
     rank = models.CharField(max_length=100)
     username = models.CharField(max_length=100, unique=True)
-    password = models.CharField(max_length=100)
+    password = models.CharField(max_length=255)
     status = models.CharField(max_length=100)
     badge_number = models.IntegerField(unique=True)
 
-    def __str__(self):
-        return f"{self.first_name} {self.middle_name} {self.surname}, Username: {self.username}, Rank: {self.rank}, Badge Number: {self.badge_number}, Status: {self.status}"
-
     def save(self, *args, **kwargs):
         if not self.password:
-            self.password = ''.join(random.choices(string.ascii_letters + string.digits, k=8))
-        super().save(*args, **kwargs)
+            self.password = generate_random_password()
+        elif self.pk is None or 'password' in self.get_dirty_fields():  # Only hash if the password is new or changed
+            self.password = bcrypt.hashpw(self.password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
+        super(AddNewOfficer, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return f"{self.first_name} {self.middle_name} {self.surname}, Username: {self.username}, Rank: {self.rank}, Badge Number: {self.badge_number}, Status: {self.status}"
 
 class CriminalRecord(models.Model):
     """Criminal's personal information Class"""

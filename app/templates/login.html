@@ -2,61 +2,61 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>LoginPage</title>
+    <title>Login</title>
     <style>
-        * {
+        body {
             font-family: Arial, sans-serif;
-            background-color: rgb(1, 1, 5);
+            background-color: rgb(5, 5, 17);
+            color: white;
+            text-align: center;
             margin: 0;
             padding: 0;
-            background-color: rgb(5, 5, 17);
         }
         h1 {
-            text-align: center;
-            color: white;
-            background-color: black;
             padding: 20px;
             margin: 0;
+            background-color: black;
             text-transform: uppercase;
             text-shadow: 0px 0px 10px black;
             font-size: 3em;
         }
-        .form {
-            text-align: center;
+        .form-container {
             margin-top: 50px;
-            color: white;
             background-color: rgb(10, 8, 3);
-            text-emphasis-color: white;
-        }
-        p {
-            color: white;
-            background-color: black;
             padding: 20px;
-            margin: 0;
-            text-align: center;
-            font-size: 1.2em;
+            display: inline-block;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: black;
+            color: white;
+            border: none;
+        }
+        .error {
+            color: red;
         }
     </style>
 </head>
 <body>
     <h1>Welcome To Crime Watch</h1>
-    <hr />
-    <p>Please Login Below</p>
-    {% csrf_token %}
-    {% if error %}
-    <div class="form">
-        <form action="/login/" method="POST">
-            <label for="username">Username:</label>
-            <input type="text" name="username" id="username" style="width: 10pc; height: 3pc;" placeholder="Enter your username" required>
-            <br />
-            <label for="password">Password:</label>
-            <input type="password" name="password" id="password" style="width: 10pc; height: 3pc;" placeholder="Enter your Password" required>
-            <br />
-            <button type="submit" style="height: 4pc; width: 10pc; color: aliceblue; position: relative; left: 2.5pc;">Login</button>
-            <br />
+    <div class="form-container">
+        {% if messages %}
+            {% for message in messages %}
+                <p class="error">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Login</button>
         </form>
     </div>
-    {% endif %}
-    {% if success %}
 </body>
 </html>

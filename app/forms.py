@@ -19,3 +19,8 @@ class AddNewOfficerForm(forms.ModelForm):
         widgets = {
             'password': forms.PasswordInput(),
         }
+        
+class LoginForms(forms.Form):
+    """Class for creating a login form for the police officers"""
+    username = forms.CharField(max_length=100)
+    password = forms.CharField(widget=forms.PasswordInput())
