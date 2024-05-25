@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from .forms import PoliceOfficersForm, AddNewOfficerForm
 
 def app(request):
-  template = loader.get_template('dashboard.html')
+  template = loader.get_template('pages/dashboard.html')
   return HttpResponse(template.render())
 
 def whistledown(request):
