@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
-    'heroicons',
     'crimewatch',
     ]
 
@@ -67,7 +66,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
             ],
             "builtins": [
-                "heroicons.templatetags.heroicons",
+               
             ],
         },
     },
