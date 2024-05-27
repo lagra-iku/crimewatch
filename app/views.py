@@ -1,29 +1,24 @@
 from django.shortcuts import render, redirect
-from .forms import PoliceOfficersForm, AddNewOfficerForm, LoginForms
-from django.contrib.auth import authenticate, login
+from .forms import PoliceOfficersForm, AddNewOfficerForm, LoginForm
+from django.contrib.auth import authenticate, login, logout
 from datetime import datetime
 import bcrypt
 from .models import AddNewOfficer
-from django.contrib.auth import login, logout
 from django.contrib import messages
-from django.http import HttpResponse, loader
-dat = datetime.now()
-date = dat.strftime("%Y")
 
 def app(request):
-  template = loader.get_template('pages/dashboard.html')
-  return HttpResponse(template.render())
+    return render(request, 'pages/dashboard.html')
 
 def whistledown(request):
     return render(request, 'ladywhistledown.html')
 
 def login_view(request):
     if request.method == 'POST':
-        form = LoginForms(request.POST)
+        form = LoginForm(request.POST)
         if form.is_valid():
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
-            
+
             try:
                 officer = AddNewOfficer.objects.get(username=username)
             except AddNewOfficer.DoesNotExist:
@@ -31,13 +26,17 @@ def login_view(request):
                 return render(request, 'login.html', {'form': form})
 
             if bcrypt.checkpw(password.encode('utf-8'), officer.password.encode('utf-8')):
-                # If password matches, set session and redirect
-                request.session['officer_id'] = officer.id
-                return redirect('whistledown')
+                # Authenticate the user
+                user = authenticate(request, username=username, password=password)
+                if user is not None:
+                    login(request, user)
+                    return redirect('app')
+                else:
+                    messages.error(request, 'Invalid username or password.')
             else:
                 messages.error(request, 'Invalid username or password.')
     else:
-        form = LoginForms()
+        form = LoginForm()
     
     return render(request, 'login.html', {'form': form})
 
@@ -54,3 +53,14 @@ def register_officers(request):
     else:
         form = AddNewOfficerForm()
     return render(request, 'register_officers.html', {'form': form})
+
+
+def add_new_officer(request):
+    if request.method == 'POST':
+        form = AddNewOfficerForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('admin_dashboard') 
+    else:
+        form = AddNewOfficerForm()
+    return render(request, 'add_new_officer.html', {'form': form})

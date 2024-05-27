@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
+{% load heroicons %}
+
 {% block title %}Home{% endblock %}
+
 {% block content %}
+
 <div class="flex flex-row">
     <div class="basis-1/2">Friday, 25th May 2024</div>
     <div class="basis-1/2 flex justify-end ">
@@ -9,69 +13,69 @@
             <span>Book a Case</span>
         </button>
     </div>
-  </div>
-  <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mt-4">
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4 mt-4">
     <div class="col-span-3">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div class="border  rounded p-3  border-gray-300">
+            <div class="border rounded p-3 border-gray-300">
                 <h4 class="flex items-center font-bold text-xl mb-3">
                     {% heroicon_solid "pencil-square" %}&nbsp;&nbsp;
-                   Book a Case
+                    Book a Case
                 </h4>
-                <div class="grid grid-cols-2  gap-4 place-items-center text-white">
-                    <div class=" bg-mutedTeal text-center py-6 px-10">
+                <div class="grid grid-cols-2 gap-4 place-items-center text-white">
+                    <div class="bg-mutedTeal text-center py-6 px-10">
                         <p class="font-bold text-5xl">5</p>
                         <h5>Open</h5>
                     </div>
-                    <div class=" bg-mutedTeal text-center py-6 px-10">
+                    <div class="bg-mutedTeal text-center py-6 px-10">
                         <p class="font-bold text-5xl">3</p>
                         <h5>Closed</h5>
                     </div>
-                  </div>
+                </div>
             </div>
-            <div class="border  rounded p-3  border-gray-300">
+            <div class="border rounded p-3 border-gray-300">
                 <h4 class="flex items-center font-bold text-xl mb-3">
                     {% heroicon_solid "user" %}&nbsp;&nbsp;
-                   Book a Criminal
+                    Book a Criminal
                 </h4>
-                <div class="grid grid-cols-2  gap-4 place-items-center text-white">
-                    <div class=" bg-mutedTeal text-center py-6 px-10">
+                <div class="grid grid-cols-2 gap-4 place-items-center text-white">
+                    <div class="bg-mutedTeal text-center py-6 px-10">
                         <p class="font-bold text-5xl">10</p>
                         <h5>Males</h5>
                     </div>
-                    <div class=" bg-mutedTeal text-center py-6 px-10">
+                    <div class="bg-mutedTeal text-center py-6 px-10">
                         <p class="font-bold text-5xl">8</p>
                         <h5>Females</h5>
                     </div>
-                  </div>
+                </div>
             </div>
-            <div class="">
+            <div>
                 <h4 class="flex items-center font-bold text-xl mb-3">
                     {% heroicon_solid "users" %}&nbsp;&nbsp;
-                   Officers on Duty
+                    Officers on Duty
                 </h4>
                 <ul class="list-disc pl-8">
-                    <li >Constable Joe Emmanuel</li>
+                    <li>Constable Joe Emmanuel</li>
                     <li>Constable Titilola Emeka</li>
-                    <li >Constable Joe Emmanuel</li>
+                    <li>Constable Joe Emmanuel</li>
                     <li>Constable Titilola Emeka</li>
-                    <li >Constable Joe Emmanuel</li>
+                    <li>Constable Joe Emmanuel</li>
                     <li>Constable Titilola Emeka</li>
                 </ul>
             </div>
-            <div class="">
-                <img src="../../static/images/ggraph.png" alt="graph">
+            <div>
+                <img src="{% static 'images/ggraph.png' %}" alt="graph">
             </div>
         </div>
     </div>
     <div class="p-3 bg-lightBlueGrey rounded text-center mx-auto">
         <h4 class="flex items-center font-bold text-xl mb-3">
             {% heroicon_solid "users" %}&nbsp;&nbsp;
-          Wanted Persons
+            Wanted Persons
         </h4>
-        <img src="../../static/images/criminal1.png" alt="" class="mx-auto my-2">
-        <img src="../../static/images/criminal2.png" alt="" class="mx-auto my-2">
+        <img src="{% static 'images/criminal1.png' %}" alt="" class="mx-auto my-2">
+        <img src="{% static 'images/criminal2.png' %}" alt="" class="mx-auto my-2">
         <a href="#" class="align-right">View More ...</a>
     </div>
-  </div>
+</div>
 {% endblock %}

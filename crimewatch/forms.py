@@ -12,15 +12,16 @@ class PoliceOfficersForm(forms.ModelForm):
         }
         
 class AddNewOfficerForm(forms.ModelForm):
-    """Creates a new form for adding a new police officer"""
     class Meta:
         model = AddNewOfficer
-        fields = '__all__'
-        widgets = {
-            'password': forms.PasswordInput(),
-        }
+        fields = ['first_name', 'middle_name', 'surname', 'rank', 'username', 'password', 'status', 'badge_number']
+
+    def clean_password(self):
+        password = self.cleaned_data.get('password')
+        # Grace we will Perform any additional password validation here if needed
+        return password
         
-class LoginForms(forms.Form):
+class LoginForm(forms.Form):
     """Class for creating a login form for the police officers"""
     username = forms.CharField(max_length=100)
     password = forms.CharField(widget=forms.PasswordInput())
