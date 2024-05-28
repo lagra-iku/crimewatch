@@ -15,38 +15,42 @@ def app(request):
 def whistledown(request):
     return render(request, 'ladywhistledown.html')
 
+
+from django.contrib.auth import authenticate, login as auth_login
+
 def login(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
-        
+
         try:
-            # Retrieve the user based on the username
-            user = AddNewOfficer.objects.get(username=username)
+            # Authenticate the user
+            user = authenticate(request, username=username, password=password)
+
+            if user is not None:
+                # Login the authenticated user
+                auth_login(request, user)
+                return redirect('app')
+            else:
+                print('Invalid username or password')
+                return render(request, 'login.html', {'error_message': 'Invalid username or password'})
         except AddNewOfficer.DoesNotExist:
-            # Handle case when user does not exist
-            return render(request, 'login.html', {'error_message': 'User does not exist'})
-        
-        if check_password(password, user.password):
-            # Log the user in and create a session
-            auth_login(request, user)
-            return redirect('pages\dashboard')
-        else:
-            # Authentication failed, handle accordingly (e.g., show an error message)
+            print('Username or password invalid')
             return render(request, 'login.html', {'error_message': 'Invalid username or password'})
     else:
         return render(request, 'login.html')
+    
 
 def logout_view(request):
     logout(request)
-    return redirect('login')  # Redirect to login page after logout
+    return redirect('login')
 
 def register_officers(request):
     if request.method == 'POST':
         form = AddNewOfficerForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('register_officers')
+            return redirect('pages/dashboard.html')
     else:
         form = AddNewOfficerForm()
     return render(request, 'register_officers.html', {'form': form})
@@ -57,7 +61,7 @@ def add_new_officer(request):
         form = AddNewOfficerForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('admin') 
+            return redirect('add_new_officer') 
     else:
         form = AddNewOfficerForm()
     return render(request, 'add_new_officer.html', {'form': form})
