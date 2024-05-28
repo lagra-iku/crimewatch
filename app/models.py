@@ -2,6 +2,7 @@ from django.db import models
 import random
 import string
 import bcrypt
+from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 
 def generate_case_number():
     """Helper function to generate a random case number for a criminal record"""
@@ -32,27 +33,6 @@ class PoliceOfficers(models.Model):
 
     def __str__(self):
         return f"{self.name}, Rank: {self.rank}, Badge Number: {self.badge_number}, Area: {self.area}"
-
-class AddNewOfficer(models.Model):
-    """Police Officer's personal information Class"""
-    first_name = models.CharField(max_length=255)
-    middle_name = models.CharField(max_length=255)
-    surname = models.CharField(max_length=255)
-    rank = models.CharField(max_length=100)
-    username = models.CharField(max_length=100, unique=True)
-    password = models.CharField(max_length=255)
-    status = models.CharField(max_length=100)
-    badge_number = models.IntegerField(unique=True)
-
-    def save(self, *args, **kwargs):
-        if not self.password:
-            self.password = generate_random_password()
-        elif self.pk is None or 'password' in self.get_dirty_fields():  # Only hash if the password is new or changed
-            self.password = bcrypt.hashpw(self.password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
-        super(AddNewOfficer, self).save(*args, **kwargs)
-
-    def __str__(self):
-        return f"{self.first_name} {self.middle_name} {self.surname}, Username: {self.username}, Rank: {self.rank}, Badge Number: {self.badge_number}, Status: {self.status}"
 
 class CriminalRecord(models.Model):
     """Criminal's personal information Class"""
@@ -99,3 +79,50 @@ class NewCase(models.Model):
 
     def __str__(self):
         return f"Case Number: {self.case_number}, Case Type: {self.crime_type}, Case Status: {self.case_status}"
+
+class OfficerManager(BaseUserManager):
+    """create_user and create_superuser methods for the AddNewOfficer model"""
+    def create_user(self, username, password=None, **extra_fields):
+        """create a new user with the given username and password"""
+        if not username:
+            raise ValueError('The Username field must be set')
+        user = self.model(username=username, **extra_fields)
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
+
+    def create_superuser(self, username, password=None, **extra_fields):
+        """create a new superuser with the given username and password"""
+        extra_fields.setdefault('is_staff', True)
+        extra_fields.setdefault('is_superuser', True)
+        return self.create_user(username, password, **extra_fields)
+
+class AddNewOfficer(AbstractBaseUser, PermissionsMixin):
+    """CRUD Class for adding new police officers to the database"""
+    first_name = models.CharField(max_length=255)
+    middle_name = models.CharField(max_length=255)
+    surname = models.CharField(max_length=255)
+    rank = models.CharField(max_length=100)
+    username = models.CharField(max_length=100, unique=True)
+    status = models.CharField(max_length=100)
+    badge_number = models.IntegerField(unique=True)
+    is_staff = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+    groups = models.ManyToManyField('auth.Group', related_name='app_add_new_officer_groups')
+    user_permissions = models.ManyToManyField('auth.Permission', related_name='app_add_new_officer_permissions')
+
+    objects = OfficerManager()
+
+    USERNAME_FIELD = 'username'
+    REQUIRED_FIELDS = []
+
+    def save(self, *args, **kwargs):
+        """HELPER FUNCTION TO HASH PASSWORDS BEFORE SAVING TO THE DATABASE"""
+        if not self.password:
+            self.password = generate_random_password()
+        elif self.pk is None or 'password' in self.get_dirty_fields():
+            self.password = bcrypt.hashpw(self.password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
+        super(AddNewOfficer, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return f"{self.first_name} {self.middle_name} {self.surname}, Username: {self.username}, Rank: {self.rank}, Badge Number: {self.badge_number}, Status: {self.status}"
