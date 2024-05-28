@@ -1,5 +1,5 @@
 from django import forms
-from .models import PoliceOfficers, AddNewOfficer
+from .models import PoliceOfficers, AddNewOfficer, NewCase, CriminalRecord
 
 
 class PoliceOfficersForm(forms.ModelForm):
@@ -10,7 +10,28 @@ class PoliceOfficersForm(forms.ModelForm):
         widgets = {
             'date_of_birth': forms.DateInput(attrs={'type': 'date'}),
         }
+
+class NewCaseForm(forms.ModelForm):
+    """Generate a form for creating new cases"""
+    class Meta:
+        model = NewCase
+        fields = '__all__'
+        widgets = {
+            'event_date': forms.DateInput(attrs={'type': 'date'}),
+            'event_time': forms.TimeInput(attrs={'type': 'time'}),
+        }
+
+
+class CriminalRecordForm(forms.ModelForm):
+    """Generate a form for creating new criminal records"""
+    class Meta:
+        model = CriminalRecord
+        fields = '__all__'
+        widgets = {
+            'date_of_birth': forms.DateInput(attrs={'type': 'date'}),
+        }
         
+
 class AddNewOfficerForm(forms.ModelForm):
     class Meta:
         model = AddNewOfficer
