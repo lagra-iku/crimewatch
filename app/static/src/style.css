@@ -28,3 +28,8 @@ body {
     background-color: var(--deep-navy) !important;
     color:white;
 }
+
+.bg-gradient-teal{
+    background-image: linear-gradient(180deg, var(--deep-navy), black) !important;
+color:white;
+}
