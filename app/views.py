@@ -1,9 +1,9 @@
-from django.shortcuts import render, redirect
-from .forms import PoliceOfficersForm, AddNewOfficerForm, LoginForm
+from django.shortcuts import render, redirect, get_object_or_404
+from .forms import PoliceOfficersForm, AddNewOfficerForm, LoginForm, CaseForm
 from django.contrib.auth import authenticate, login, logout
 from datetime import datetime
 import bcrypt
-from .models import AddNewOfficer
+from .models import AddNewOfficer, Case
 from django.contrib import messages
 
 def app(request):
@@ -64,3 +64,32 @@ def add_new_officer(request):
     else:
         form = AddNewOfficerForm()
     return render(request, 'add_new_officer.html', {'form': form})
+
+def case_list(request):
+    cases = Case.objects.all()
+    return render(request, 'cases/case_list.html', {'cases': cases})
+
+def case_detail(request, pk):
+    case = get_object_or_404(Case, pk=pk)
+    return render(request, 'cases/case_detail.html', {'case': case})
+
+def case_new(request):
+    if request.method == "POST":
+        form = CaseForm(request.POST, request.FILES)
+        if form.is_valid():
+            case = form.save()
+            return redirect('case_detail', pk=case.pk)
+    else:
+        form = CaseForm()
+    return render(request, 'cases/case_edit.html', {'form': form})
+
+def case_edit(request, pk):
+    case = get_object_or_404(Case, pk=pk)
+    if request.method == "POST":
+        form = CaseForm(request.POST, request.FILES, instance=case)
+        if form.is_valid():
+            case = form.save()
+            return redirect('case_detail', pk=case.pk)
+    else:
+        form = CaseForm(instance=case)
+    return render(request, 'cases/case_edit.html', {'form': form})
