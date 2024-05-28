@@ -16,13 +16,15 @@ body {
     background:#153A4C;
 }
 .vert-bar {
-background-image: linear-gradient(180deg, var(--deep-navy), black) !important;
-
-height:100vh;
-color: white;
+    background-image: linear-gradient(180deg, var(--deep-navy), black) !important;
+    height:100vh;
+    color: white;
 }
-
-.nav-item.last-item {
-    position: absolute;
-    bottom: 20px;
+.nav-item:hover, .nav-item:active {
+    border: solid 1px white !important;
+    border-radius: 10px;
+}
+.bg-dark-teal{
+    background-color: var(--deep-navy) !important;
+    color:white;
 }

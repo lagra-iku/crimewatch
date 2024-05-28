@@ -54,6 +54,8 @@ class AddNewOfficer(models.Model):
     def __str__(self):
         return f"{self.first_name} {self.middle_name} {self.surname}, Username: {self.username}, Rank: {self.rank}, Badge Number: {self.badge_number}, Status: {self.status}"
 
+
+    
 class CriminalRecord(models.Model):
     """Criminal's personal information Class"""
     first_name = models.CharField(max_length=255)
@@ -80,11 +82,11 @@ class CriminalRecord(models.Model):
     def __str__(self):
         return f"{self.first_name} {self.middle_name} {self.surname}"
 
-class NewCase(models.Model):
+  
+class Case(models.Model):
     """New case Class"""
     case_number = models.CharField(max_length=9, default=generate_case_number, unique=True)
-    event_date = models.DateField()
-    event_time = models.TimeField()
+    event_date = models.DateTimeField()
     crime_type = models.CharField(max_length=255)
     location_of_crime = models.CharField(max_length=255)
     case_description = models.TextField()
