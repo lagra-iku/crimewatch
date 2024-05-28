@@ -43,16 +43,16 @@ class CriminalRecord(models.Model):
     tribe = models.CharField(max_length=100)
     religion = models.CharField(max_length=100)
     marital_status = models.CharField(max_length=100)
-    height = models.FloatField()
-    weight = models.FloatField()
+    height_in_meters = models.FloatField()
+    weight_in_kg = models.FloatField()
     gender = models.CharField(max_length=10)
-    nin = models.CharField(max_length=100)
+    nin = models.CharField(max_length=100, unique=True)
     address = models.TextField()
     contact_info = models.CharField(max_length=100)
     distinctive_features = models.TextField(default="Scars, Tribal marks, Tattoos, Piercings, etc.")
     next_of_kin = models.CharField(max_length=255)
-    finger_print = models.ImageField(upload_to='images/')
-    mugshot = models.ImageField(upload_to='images/')
+    finger_print = models.ImageField(upload_to='images/', blank=True)
+    mugshot = models.ImageField(upload_to='images/', blank=True)
     known_aliases = models.CharField(max_length=255)
     associates = models.CharField(max_length=255)
     case_number = models.CharField(max_length=9, default=generate_case_number, unique=True)
@@ -68,14 +68,14 @@ class Case(models.Model):
     crime_type = models.CharField(max_length=255)
     location_of_crime = models.CharField(max_length=255)
     case_description = models.TextField()
-    associated_criminals = models.ForeignKey(CriminalRecord, on_delete=models.CASCADE)
-    associated_case_files = models.FileField(upload_to='files/')
+    associated_criminals = models.ForeignKey(CriminalRecord, on_delete=models.CASCADE, blank=True)
+    associated_case_files = models.FileField(upload_to='files/', blank=True)
     witnesses = models.CharField(max_length=255)
     known_suspects = models.CharField(max_length=255)
     arrested_suspects = models.CharField(max_length=255)
     case_status = models.CharField(max_length=100)
-    pictures_of_evidence = models.ImageField(upload_to='images/')
-    case_officer = models.ForeignKey(PoliceOfficers, on_delete=models.CASCADE)
+    pictures_of_evidence = models.ImageField(upload_to='images/', blank=True)
+    case_officer = models.ForeignKey(PoliceOfficers, on_delete=models.CASCADE, blank=True)
 
     def __str__(self):
         return f"Case Number: {self.case_number}, Case Type: {self.crime_type}, Case Status: {self.case_status}"
@@ -126,3 +126,11 @@ class AddNewOfficer(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return f"{self.first_name} {self.middle_name} {self.surname}, Username: {self.username}, Rank: {self.rank}, Badge Number: {self.badge_number}, Status: {self.status}"
+
+
+class CrimeSubcategory(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField()
+
+    def __str__(self):
+        return self.name

@@ -9,4 +9,5 @@ urlpatterns = [
     path('case/<int:pk>/', views.case_detail, name='case_detail'),
     
     path('case/<int:pk>/edit/', views.case_edit, name='case_edit'),
+    path('create_criminal_record', views.create_criminal_record, name='create_criminal_record')
 ]

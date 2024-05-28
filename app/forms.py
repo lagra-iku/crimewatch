@@ -1,5 +1,5 @@
 from django import forms
-from .models import PoliceOfficers, AddNewOfficer, Case
+from .models import PoliceOfficers, AddNewOfficer, Case, CriminalRecord, CrimeSubcategory
 
 class CaseForm(forms.ModelForm):
     class Meta:
@@ -36,7 +36,7 @@ class PoliceOfficersForm(forms.ModelForm):
 class NewCaseForm(forms.ModelForm):
     """Generate a form for creating new cases"""
     class Meta:
-        model = NewCase
+        model = Case
         fields = '__all__'
         widgets = {
             'event_date': forms.DateInput(attrs={'type': 'date'}),

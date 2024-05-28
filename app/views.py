@@ -5,6 +5,8 @@ from datetime import datetime
 import bcrypt
 from .models import AddNewOfficer, Case
 from django.contrib import messages
+from .forms import CriminalRecordForm
+
 
 def app(request):
     return render(request, 'pages/dashboard.html')
@@ -78,7 +80,7 @@ def case_new(request):
         form = CaseForm(request.POST, request.FILES)
         if form.is_valid():
             case = form.save()
-            return redirect('case_detail', pk=case.pk)
+            return redirect('/admin', pk=case.pk)
     else:
         form = CaseForm()
     return render(request, 'cases/case_edit.html', {'form': form})
@@ -93,3 +95,14 @@ def case_edit(request, pk):
     else:
         form = CaseForm(instance=case)
     return render(request, 'cases/case_edit.html', {'form': form})
+
+def create_criminal_record(request):
+    if request.method == 'POST':
+        form = CriminalRecordForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('success')
+    else:
+        form = CriminalRecordForm()
+    return render(request, 'create_criminal_record.html', {'form': form})
+
