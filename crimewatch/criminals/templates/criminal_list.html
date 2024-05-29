@@ -1,15 +1,42 @@
 {% extends 'base.html' %}
 {% block title %}Criminal list{% endblock %}
 {% block content %}
-    <h1>Criminal List</h1>
-    <a href="{% url 'criminal_create' %}">Add New Criminal</a>
-    <ul>
-        {% for criminal in criminals %}
-            <li>
-                {{ criminal.first_name }} {{ criminal.last_name }} ({{ criminal.alias }}) - 
-                <a href="{% url 'criminal_update' criminal.pk %}">Edit</a> | 
-                <a href="{% url 'criminal_delete' criminal.pk %}">Delete</a>
-            </li>
-        {% endfor %}
-    </ul>
+<div class="container-fluid p-5">
+    <div class="row mb-5">
+        <div class="col-6">
+            <h1 class="fw-bold fs-2">Criminals Page</h1>
+        </div>
+        <div class="col-6 ">
+            <a href="{% url 'criminal_create' %}" class="btn btn-primary p-3 float-end"><i class="fa fa-plus"></i> Add New Criminal</a>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table w-75">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Crime Committed</th>
+                    <th scope="col">Date of Arrest</th>
+                    <th scope="col">Is incarcerated</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for criminal in criminals %}
+                    <tr>
+                        <td class="text-capitalizee">{{ criminal.first_name }} {{ criminal.last_name }}</td>
+                        <td class="text-capitalize">{{ criminal.crime_committed }}</td>
+                        <td class="">{{ criminal.date_of_arrest }}</td>
+                        <td class="text-capitalize">{{ criminal.is_incarcerated }}</td>
+                        <td>
+                            <a href="{% url 'criminal_update' criminal.pk %}">Edit</a> | 
+                            <a href="{% url 'criminal_delete' criminal.pk %}">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+</div>
     {% endblock %}
