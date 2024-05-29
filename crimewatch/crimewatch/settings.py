@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'criminals',
     'officers',
     'cases'
+    'crimewatch',
 ]
 
 MIDDLEWARE = [
