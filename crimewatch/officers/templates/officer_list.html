@@ -1,15 +1,41 @@
 {% extends 'base.html' %}
-{% block title %}List of Officers{% endblock %}
+{% block title %}Criminal list{% endblock %}
 {% block content %}
-    <h1>Officer List</h1>
-    <a href="{% url 'officer_create' %}">Add New Officer</a>
-    <ul>
-        {% for officer in officers %}
-            <li>
-                {{ officer.name }} - {{ officer.rank }} - {{ officer.badge_number }} - 
-                <a href="{% url 'officer_update' officer.pk %}">Edit</a> | 
-                <a href="{% url 'officer_delete' officer.pk %}">Delete</a>
-            </li>
-        {% endfor %}
-    </ul>
-    {% endblock %}
+<div class="container-fluid p-5">
+    <div class="row mb-5">
+        <div class="col-6">
+            <h1 class="fw-bold fs-2">Officers Page</h1>
+        </div>
+        <div class="col-6 ">
+            <a href="{% url 'officer_create' %}" class="btn btn-primary p-3 float-end"><i class="fa fa-plus"></i> Add New Officer</a>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table w-75">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Sex</th>
+                    <th scope="col">Rank</th>
+                    <th scope="col">Badge Number</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for officer in officers %}
+                    <tr>
+                        <td class="text-capitalize">{{ officer.name }}</td>
+                        <td class="text-capitalize">{{ officer.sex }}</td>
+                        <td class="text-capitalize">{{ officer.rank }}</td>
+                        <td class="text-capitalize">{{ officer.badge_number }}</td>
+                        <td>
+                            <a href="{% url 'officer_update' officer.pk %}">Edit</a> | 
+                            <a href="{% url 'officer_delete' officer.pk %}">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

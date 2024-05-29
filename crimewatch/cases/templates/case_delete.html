@@ -1,10 +1,17 @@
 {% extends 'base.html' %}
 {% block title %}Delete Case{% endblock %}
 {% block content %}
-    <h1>Are you sure you want to delete case {{ criminalcase.case_number }}?</h1>
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit">Yes, delete</button>
-    </form>
-    <a href="{% url 'case_list' %}">Cancel</a>
-    {% endblock %}
+<div class="d-flex justify-content-center align-items-center" style="height:50vh">
+    <div class="text-center">
+        <p class="fs-1">Are you sure you want to delete case <span class="text-capitalize fw-bold">{{  criminalcase.case_number }}</span>?</p>
+        <form method="post">
+            {% csrf_token %}
+            <div>
+                <button type="submit" class="btn btn-danger p-3">Yes, delete</button>
+                <a href="{% url 'case_list' %}" class="btn btn-gray p-3 px-4">Cancel</a>
+            </div>
+        </form>
+
+    </div>
+</div>
+{% endblock %}

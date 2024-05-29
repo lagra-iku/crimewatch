@@ -55,12 +55,18 @@ p {
     color: white;
 }
 
-input[type="text"]{
+input[type="text"], input[type="number"], input[type="email"], input[type="date"]{
 width:100%;
 border-radius: 5px;
 border: solid 1px #2F4F4F; 
 padding:5px;
 }
+
+select{
+    border-radius: 5px !important;
+    border: solid 1px #2F4F4F; 
+    padding:5px !important;
+    }
 /* .nav-item:hover, .nav-item:active {
     border: solid 1px white !important;
     border-radius: 10px;
