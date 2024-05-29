@@ -39,8 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'criminals',
     'officers',
-    'cases'
-    'crimewatch',
+    'cases',
 ]
 
 MIDDLEWARE = [
