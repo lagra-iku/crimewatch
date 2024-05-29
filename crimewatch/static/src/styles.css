@@ -55,7 +55,7 @@ p {
     color: white;
 }
 
-input[type="text"], input[type="number"], input[type="email"], input[type="date"]{
+input[type="text"], input[type="number"], input[type="email"], input[type="date"], textarea{
 width:100%;
 border-radius: 5px;
 border: solid 1px #2F4F4F; 

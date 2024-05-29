@@ -1,10 +1,14 @@
 from django import forms
 from .models import CriminalCase, CrimeType, CrimeSubcategory
+from django.http import JsonResponse
 
 class CriminalCaseForm(forms.ModelForm):
     class Meta:
         model = CriminalCase
         fields = '__all__'
+        widgets = {
+            'event_date': forms.DateInput(attrs={'type': 'date'}),
+        }
 
     def __init__(self, *args, **kwargs):
         super(CriminalCaseForm, self).__init__(*args, **kwargs)

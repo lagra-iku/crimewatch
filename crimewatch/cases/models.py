@@ -28,11 +28,11 @@ class CriminalCase(models.Model):
     location_of_crime = models.CharField(max_length=255)
     case_description = models.TextField()
     associated_case_files = models.ManyToManyField('self', blank=True)
-    witnesses = models.TextField()
-    known_suspects = models.TextField()
-    arrested_suspects = models.TextField()
+    witnesses = models.CharField(max_length=255)
+    known_suspects = models.CharField(max_length=255)
+    arrested_suspects = models.CharField(max_length=255)
     case_status = models.CharField(max_length=12, choices=CASE_STATUS_CHOICES)
-    pictures_of_evidence = models.ImageField(upload_to='images/', null=True)
+    pictures_of_evidence = models.ImageField(upload_to='src/images/', null=True)
     case_officer = models.ForeignKey(Officer, on_delete=models.CASCADE, null=True)
 
     def save(self, *args, **kwargs):

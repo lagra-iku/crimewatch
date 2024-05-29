@@ -1,6 +1,12 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import CriminalCase
+from .models import CriminalCase, CrimeSubcategory
 from .forms import CriminalCaseForm
+from django.http import JsonResponse
+
+def load_subcategories(request):
+    crime_type_id = request.GET.get('crime_type')
+    subcategories = CrimeSubcategory.objects.filter(crime_type_id=crime_type_id).order_by('name')
+    return JsonResponse(list(subcategories.values('id', 'name')), safe=False)
 
 # Create a new criminal case
 def case_create(request):
