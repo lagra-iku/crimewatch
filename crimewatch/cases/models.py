@@ -33,7 +33,7 @@ class CriminalCase(models.Model):
     arrested_suspects = models.TextField()
     case_status = models.CharField(max_length=12, choices=CASE_STATUS_CHOICES)
     pictures_of_evidence = models.ImageField(upload_to='images/', null=True)
-    case_officer = models.ForeignKey(Officer, on_delete=models.CASCADE)
+    case_officer = models.ForeignKey(Officer, on_delete=models.CASCADE, null=True)
 
     def save(self, *args, **kwargs):
         if not self.case_number:

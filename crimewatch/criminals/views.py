@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Criminal
+from .models import CriminalRecord
 from .forms import CriminalForm
 
 # Create a criminal
@@ -15,12 +15,12 @@ def criminal_create(request):
 
 # Read (list) criminals
 def criminal_list(request):
-    criminals = Criminal.objects.all()
+    criminals = CriminalRecord.objects.all()
     return render(request, 'criminal_list.html', {'criminals': criminals})
 
 # Update a criminal
 def criminal_update(request, pk):
-    criminal = get_object_or_404(Criminal, pk=pk)
+    criminal = get_object_or_404(CriminalRecord, pk=pk)
     if request.method == 'POST':
         form = CriminalForm(request.POST, instance=criminal)
         if form.is_valid():
@@ -32,7 +32,7 @@ def criminal_update(request, pk):
 
 # Delete a criminal
 def criminal_delete(request, pk):
-    criminal = get_object_or_404(Criminal, pk=pk)
+    criminal = get_object_or_404(CriminalRecord, pk=pk)
     if request.method == 'POST':
         criminal.delete()
         return redirect('criminal_list')
