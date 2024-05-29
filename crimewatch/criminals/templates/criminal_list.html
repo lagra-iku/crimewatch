@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Criminal List</title>
+</head>
+<body>
+    <h1>Criminal List</h1>
+    <a href="{% url 'criminal_create' %}">Add New Criminal</a>
+    <ul>
+        {% for criminal in criminals %}
+            <li>
+                {{ criminal.first_name }} {{ criminal.last_name }} ({{ criminal.alias }}) - 
+                <a href="{% url 'criminal_update' criminal.pk %}">Edit</a> | 
+                <a href="{% url 'criminal_delete' criminal.pk %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

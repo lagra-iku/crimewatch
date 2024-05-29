@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Criminal Case List</title>
+</head>
+<body>
+    <h1>Criminal Case List</h1>
+    <a href="{% url 'case_create' %}">Add New Criminal Case</a>
+    <ul>
+        {% for criminalcase in criminalcases %}
+            <li>
+                {{ criminalcase.case_number }} - {{ criminalcase.crime_type }} ({{ criminalcase.case_status }}) - 
+                <a href="{% url 'case_update' case.pk %}">Edit</a> | 
+                <a href="{% url 'case_delete' case.pk %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

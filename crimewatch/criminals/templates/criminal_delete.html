@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Criminal</title>
+</head>
+<body>
+    <h1>Are you sure you want to delete {{ criminal.first_name }} {{ criminal.last_name }}?</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Yes, delete</button>
+    </form>
+    <a href="{% url 'criminal_list' %}">Cancel</a>
+</body>
+</html>

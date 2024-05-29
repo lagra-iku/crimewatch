@@ -1,0 +1,65 @@
+@import url("http://fonts.googleapis.com/css?family=Montserrat:400,300,700");
+
+body {
+    font-family: 'Montserrat', sans-serif !important;
+    background-color: var(--ivory) !important;
+    color: var(--charcoal) !important;
+  }
+
+:root {
+    --dark-slate-gray:#2F4F4F; /* Headers, navigation bar, primary buttons */
+    --dark-khaki: #BDB76B; /*Secondary buttons, background elements, footers */
+    --crimson-red: #DC143C; /*Alerts, notifications, call-to-action buttons */
+    --ivory: ##FFFFF0; /*Page background*/
+    --charcoal: #36454F; /* Primary text*/
+    --dim-gray: #696969; /*Secondary text, placeholder text*/
+    --orange: #FFa500 /*Highlights, links, active states*/
+}
+.navbar{
+    background:black;
+    color: var(--dark-slate-gray) !important;
+}
+
+p {
+    color: var(--charcoal) !important;
+}
+.text-secondary {
+    color:var(--dim-gray) !important;
+}
+
+a {
+    color: white!important;
+}
+
+.btn-primary {
+    background-color: var(--dark-slate-gray) !important;
+    
+}
+.btn-secondary {
+    background-color: var(--dark-khaki) !important;
+    color:  var(--ivory) !important;
+    border-color: var(--dark-slate-gray) !important;
+}
+.btn-alert {
+    background-color: var(--crimson-red) !important;
+    color: var(--ivory) !important;
+}
+
+.vert-bar {
+    background-image: linear-gradient(180deg, black, var(--dark-slate-gray)) !important;
+    height:100vh;
+    color: white;
+}
+/* .nav-item:hover, .nav-item:active {
+    border: solid 1px white !important;
+    border-radius: 10px;
+}
+.bg-dark-teal{
+    background-color: var(--deep-navy) !important;
+    color:white;
+}
+
+.bg-gradient-teal{
+    background-image: linear-gradient(180deg, var(--deep-navy), black) !important;
+color:white;
+} */

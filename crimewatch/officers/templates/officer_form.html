@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Officer Form</title>
+</head>
+<body>
+    <h1>{{ form.instance.pk|yesno:"Update Officer,Create Officer" }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+    <a href="{% url 'officer_list' %}">Cancel</a>
+</body>
+</html>
