@@ -2,8 +2,7 @@ from django import forms
 from .models import CriminalRecord
 
 class CriminalForm(forms.ModelForm):
-    date_of_arrest = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
-
+    """Form for the criminal record model"""
     class Meta:
         model = CriminalRecord
         fields = '__all__'

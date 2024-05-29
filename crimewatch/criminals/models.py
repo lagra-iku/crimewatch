@@ -18,6 +18,7 @@ class CriminalRecord(models.Model):
     date_of_birth = models.DateField()
     date_of_arrest = models.DateField(auto_now_add=True)
     time_of_arrest = models.TimeField(auto_now_add=True)
+    crime_type = models.CharField(max_length=100, default="Grand Larceny", blank=False)
     tribe = models.CharField(max_length=100)
     religion = models.CharField(max_length=100)
     marital_status = models.CharField(max_length=100)
