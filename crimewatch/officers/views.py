@@ -36,4 +36,4 @@ def officer_delete(request, pk):
     if request.method == 'POST':
         officer.delete()
         return redirect('officer_list')
-    return render(request, 'officer_confirm_delete.html', {'officer': officer})
+    return render(request, 'officer_delete.html', {'officer': officer})

@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Criminal Case List</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}Case List{% endblock %}
+{% block content %}
     <h1>Criminal Case List</h1>
     <a href="{% url 'case_create' %}">Add New Criminal Case</a>
     <ul>
@@ -15,5 +12,4 @@
             </li>
         {% endfor %}
     </ul>
-</body>
-</html>
+    {% endblock %}

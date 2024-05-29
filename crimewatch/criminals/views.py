@@ -36,4 +36,4 @@ def criminal_delete(request, pk):
     if request.method == 'POST':
         criminal.delete()
         return redirect('criminal_list')
-    return render(request, 'criminal__delete.html', {'criminal': criminal})
+    return render(request, 'criminal_delete.html', {'criminal': criminal})
