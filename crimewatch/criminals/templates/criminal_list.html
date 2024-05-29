@@ -24,7 +24,7 @@
             <tbody>
                 {% for criminal in criminals %}
                     <tr>
-                        <td class="text-capitalizee">{{ criminal.first_name }} {{ criminal.last_name }}</td>
+                        <td class="text-capitalize">{{ criminal.first_name }} {{ criminal.surname }}</td>
                         <td class="text-capitalize">{{ criminal.crime_committed }}</td>
                         <td class="">{{ criminal.date_of_arrest }}</td>
                         <td class="text-capitalize">{{ criminal.is_incarcerated }}</td>
@@ -35,8 +35,7 @@
                     </tr>
                 {% endfor %}
             </tbody>
-
         </table>
     </div>
 </div>
-    {% endblock %}
+{% endblock %}

@@ -52,13 +52,13 @@
                         {{ form.tribe }}
                     </div>
                 </div>
-                <!-- Crime Type -->
+                <!-- Crime Committed -->
                 <div class="row mb-2 align-items-start">
                     <div class="col-md-5 col-lg-4">
-                        <label class="form-label fw-bold" for="id_crime_type">Crime Type:</label>
+                        <label class="form-label fw-bold" for="id_crime_committed">Crime Committed:</label>
                     </div>
                     <div class="col-md-7 col-lg-8 rounded-top">
-                        {{ form.crime_type }}
+                        {{ form.crime_committed }}
                     </div>
                 </div>
                 <!-- Religion -->
@@ -147,7 +147,8 @@
                     <div class="col-md-5 col-lg-4">
                         <label class="form-label fw-bold" for="id_next_of_kin">Next of Kin:</label>
                     </div>
-                    <div class="col-md-7 col-lg-8 rounded-top">
+                    <div class="col-md-7 col-lg
+                    -8 rounded-top">
                         {{ form.next_of_kin }}
                     </div>
                 </div>
@@ -203,6 +204,24 @@
                     </div>
                     <div class="col-md-7 col-lg-8 rounded-top">
                         {{ form.case_number }}
+                    </div>
+                </div>
+                <!-- Is Incarcerated -->
+                <div class="row mb-2 align-items-start">
+                    <div class="col-md-5 col-lg-4">
+                        <label class="form-label fw-bold" for="id_is_incarcerated">Is Incarcerated:</label>
+                    </div>
+                    <div class="col-md-7 col-lg-8 rounded-top">
+                        {{ form.is_incarcerated }}
+                    </div>
+                </div>
+                <!-- Is Wanted -->
+                <div class="row mb-2 align-items-start">
+                    <div class="col-md-5 col-lg-4">
+                        <label class="form-label fw-bold" for="id_is_wanted">Is Wanted:</label>
+                    </div>
+                    <div class="col-md-7 col-lg-8 rounded-top">
+                        {{ form.is_wanted }}
                     </div>
                 </div>
                 <!-- Submit and Cancel Buttons -->
