@@ -27,9 +27,7 @@ p {
     color:var(--dim-gray) !important;
 }
 
-a {
-    color: white!important;
-}
+
 
 .btn-primary {
     background-color: var(--dark-slate-gray) !important;

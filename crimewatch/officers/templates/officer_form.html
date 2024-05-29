@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Officer Form</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}Officer Form{% endblock %}
+{% block content %}
     <h1>{{ form.instance.pk|yesno:"Update Officer,Create Officer" }}</h1>
     <form method="post">
         {% csrf_token %}
@@ -11,5 +8,4 @@
         <button type="submit">Save</button>
     </form>
     <a href="{% url 'officer_list' %}">Cancel</a>
-</body>
-</html>
+    {% endblock %}

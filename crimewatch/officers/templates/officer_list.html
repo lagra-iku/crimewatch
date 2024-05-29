@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Officer List</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}List of Officers{% endblock %}
+{% block content %}
     <h1>Officer List</h1>
     <a href="{% url 'officer_create' %}">Add New Officer</a>
     <ul>
@@ -15,5 +12,4 @@
             </li>
         {% endfor %}
     </ul>
-</body>
-</html>
+    {% endblock %}
