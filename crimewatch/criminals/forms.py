@@ -1,5 +1,5 @@
 from django import forms
-from .models import CriminalRecord
+from .models import CriminalRecord, LogIn
 
 class CriminalForm(forms.ModelForm):
     """Form for the criminal record model"""
@@ -10,6 +10,16 @@ class CriminalForm(forms.ModelForm):
             'date_of_birth': forms.DateInput(attrs={'type': 'date'}),
             'date_of_arrest': forms.DateInput(attrs={'type': 'date'}),
             'time_of_arrest': forms.TimeInput(attrs={'type': 'time'}),
+        }
+    
+
+class LogInForm(forms.ModelForm):
+    """Form for the login model"""
+    class Meta:
+        model = LogIn
+        fields = '__all__'
+        widgets = {
+            'password': forms.PasswordInput()
         }
 
     # def __init__(self, *args, **kwargs):

@@ -43,3 +43,10 @@ class CriminalRecord(models.Model):
         return f"{self.first_name} {self.middle_name} {self.surname}, {self.arresting_officer}, {self.nin}, {self.case_number}, {self.date_of_birth}, {self.tribe}, {self.religion}, {self.marital_status}, {self.height_in_meters}, {self.weight_in_kg}"
 
   
+class LogIn(models.Model):
+    """Class to hold login information"""
+    username = models.CharField(max_length=255)
+    password = models.CharField(max_length=255)
+
+    def __str__(self):
+        return f"{self.username}, {self.password}"
