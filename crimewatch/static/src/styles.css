@@ -48,6 +48,10 @@ p {
     color: var(--ivory) !important;
 }
 
+.bg-gradient-teal {
+    background: linear-gradient(90deg, black, var(--dark-slate-gray)) !important;
+}
+
 .vert-bar {
     background-image: linear-gradient(180deg, black, var(--dark-slate-gray)) !important;
     position: fixed;

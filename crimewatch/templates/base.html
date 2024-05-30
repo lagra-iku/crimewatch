@@ -34,12 +34,19 @@
              
             </form>   
           </div> 
-                <div class="col-md-3 d-none d-sm-block">
-            <ul class="navbar-nav ml-3 justify-content-end">
-                <li class="nav-item">
-                    <a class="nav-link text-white text-capitalize" href="#">Welcome {{ username }} <i class="fa fa-user"></i></a>
-                </li>
-            </ul></div>
+                <div class="col-md-3 d-none d-sm-block float-end">
+                  {% if user.is_authenticated %}
+                  <ul class="navbar-nav ml-3 justify-content-end">
+                  <li class="dropdown nav-item">
+                      <a href="#" class="dropdown-toggle nav-link text-white text-capitalize" data-bs-toggle="dropdown">Welcome, {{ user.username }} <b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                          <li><a href="{% url 'logout' %}" class="text-decoration-none px-2 text-black">Logout</a></li>
+                      </ul>
+                  </li></ul>
+                  {% else %}
+                  <li><a href="{% url 'login' %}">Login</a></li>
+                  {% endif %}
+          </div>
 
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>

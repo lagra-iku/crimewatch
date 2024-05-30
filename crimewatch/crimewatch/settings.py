@@ -21,7 +21,8 @@ MEDIA_URL = '/media/'
 
 # Login Url
 LOGIN_URL = '/login/' 
-
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'login'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
