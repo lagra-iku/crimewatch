@@ -26,7 +26,7 @@ urlpatterns = [
     path('criminals/', include('criminals.urls')),
     path('cases/', include('cases.urls')),
     path('officers/', include('officers.urls')),
-    # path('search/', views.search_results, name='search_results'),
+    path('search/', views.search_results, name='search_results'),
     path('admin/', admin.site.urls),
     path('login/', views.login, name='login'),
     path('profile/', views.profile, name='profile'),
