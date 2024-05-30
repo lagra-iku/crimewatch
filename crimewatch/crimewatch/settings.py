@@ -58,6 +58,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'crimewatch.middleware.AutoLogoutMiddleware',
 ]
 
 ROOT_URLCONF = 'crimewatch.urls'
@@ -136,3 +137,11 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+# Set session expiry time in seconds
+SESSION_COOKIE_AGE = 1800  # 30 minutes
+
+# Ensure sessions expire when the browser is closed
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
