@@ -2,17 +2,25 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import CriminalRecord
 from .forms import CriminalForm
 from django.contrib.auth.decorators import login_required
-# Create a criminal
-@login_required
+
+
+#@login_required
 def criminal_create(request):
     if request.method == 'POST':
+        # Print request.POST data
+        print(request.POST)
+
         form = CriminalForm(request.POST)
         if form.is_valid():
+            print("Form is valid")
             form.save()
             return redirect('criminal_list')
     else:
         form = CriminalForm()
+        print("Form not valid")
+
     return render(request, 'criminal_form.html', {'form': form})
+
 
 # Read (list) criminals
 @login_required
