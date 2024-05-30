@@ -1,5 +1,6 @@
 from django.db import models
 from officers.models import Officer
+# from criminals.models import CriminalRecord
 
 class CrimeType(models.Model):
     name = models.CharField(max_length=100)
@@ -21,13 +22,14 @@ class CriminalCase(models.Model):
         ('closed', 'Closed'),
     ]
 
-    case_number = models.CharField(max_length=12, unique=True, editable=False)  # Generated in save method
+    case_number = models.CharField(max_length=12, unique=True, editable=False)
     event_date = models.DateTimeField()
     crime_type = models.ForeignKey(CrimeType, on_delete=models.CASCADE)
     crime_subcategory = models.ForeignKey(CrimeSubcategory, on_delete=models.CASCADE)
     location_of_crime = models.CharField(max_length=255)
     case_description = models.TextField()
-    associated_case_files = models.ManyToManyField('self', blank=True)
+    #associated_case_files = models.ForeignKey(CriminalRecord.case_number, on_delete=models.CASCADE, blank=True)
+    # associated_case_files = models.OneToOneField(CriminalRecord, on_delete=models.CASCADE, blank=True, null=True)
     witnesses = models.CharField(max_length=255)
     known_suspects = models.CharField(max_length=255)
     arrested_suspects = models.CharField(max_length=255)
