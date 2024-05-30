@@ -16,7 +16,6 @@ class CrimeSubcategory(models.Model):
 
 class CriminalCase(models.Model):
     CASE_STATUS_CHOICES = [
-        ('active', 'Active'),
         ('in_progress', 'In Progress'),
         ('closed', 'Closed'),
     ]

@@ -15,6 +15,11 @@ class Officer(models.Model):
         ('Inspector', 'Inspector'),
     ]
 
+    DUTY_STATUS = [
+        ('On Duty', 'On Duty'),
+        ('Off Duty', 'Off Duty'),
+    ]
+
     name = models.CharField(max_length=100)
     sex = models.CharField(max_length=10, choices=SEX_CHOICES, default="Male")
     rank = models.CharField(max_length=100, choices=RANK_CHOICES)
@@ -27,6 +32,8 @@ class Officer(models.Model):
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
     nationality = models.CharField(max_length=255, default="Nigerian")
+    duty_status = models.CharField(max_length=10, choices=DUTY_STATUS, default="On Duty")
+
 
     def __str__(self):
         return self.name

@@ -53,14 +53,14 @@
                     </div>
                 </div>
                 <!-- Crime Committed -->
-                <div class="row mb-2 align-items-start">
+                <!-- <div class="row mb-2 align-items-start">
                     <div class="col-md-5 col-lg-4">
                         <label class="form-label fw-bold" for="id_crime_committed">Crime Committed:</label>
                     </div>
                     <div class="col-md-7 col-lg-8 rounded-top">
                         {{ form.crime_committed }}
                     </div>
-                </div>
+                </div> -->
                 <!-- Religion -->
                 <div class="row mb-2 align-items-start">
                     <div class="col-md-5 col-lg-4">
@@ -115,120 +115,122 @@
                         {{ form.nin }}
                     </div>
                 </div>
-                <!-- Address -->
-                <div class="row mb-2 align-items-start">
-                    <div class="col-md-5 col-lg-4">
-                        <label class="form-label fw-bold" for="id_address">Address:</label>
-                    </div>
-                    <div class="col-md-7 col-lg-8 rounded-top">
-                        {{ form.address }}
-                    </div>
-                </div>
-                <!-- Contact Info -->
-                <div class="row mb-2 align-items-start">
-                    <div class="col-md-5 col-lg-4">
-                        <label class="form-label fw-bold" for="id_contact_info">Contact Info:</label>
-                    </div>
-                    <div class="col-md-7 col-lg-8 rounded-top">
-                        {{ form.contact_info }}
-                    </div>
-                </div>
-                <!-- Distinctive Features -->
-                <div class="row mb-2 align-items-start">
-                    <div class="col-md-5 col-lg-4">
-                        <label class="form-label fw-bold" for="id_distinctive_features">Distinctive Features:</label>
-                    </div>
-                    <div class="col-md-7 col-lg-8 rounded-top">
-                        {{ form.distinctive_features }}
-                    </div>
-                </div>
-                <!-- Next of Kin -->
-                <div class="row mb-2 align-items-start">
-                    <div class="col-md-5 col-lg-4">
-                        <label class="form-label fw-bold" for="id_next_of_kin">Next of Kin:</label>
-                    </div>
-                    <div class="col-md-7 col-lg
-                    -8 rounded-top">
-                        {{ form.next_of_kin }}
-                    </div>
-                </div>
-                <!-- Finger Print -->
-                <div class="row mb-2 align-items-start">
-                    <div class="col-md-5 col-lg-4">
-                        <label class="form-label fw-bold" for="id_finger_print">Finger Print:</label>
-                    </div>
-                    <div class="col-md-7 col-lg-8 rounded-top">
-                        {{ form.finger_print }}
-                    </div>
-                </div>
-                <!-- Mugshot -->
-                <div class="row mb-2 align-items-start">
-                    <div class="col-md-5 col-lg-4">
-                        <label class="form-label fw-bold" for="id_mugshot">Mugshot:</label>
-                    </div>
-                    <div class="col-md-7 col-lg-8 rounded-top">
-                        {{ form.mugshot }}
-                    </div>
-                </div>
-                <!-- Known Aliases -->
-                <div class="row mb-2 align-items-start">
-                    <div class="col-md-5 col-lg-4">
-                        <label class="form-label fw-bold" for="id_known_aliases">Known Aliases:</label>
-                    </div>
-                    <div class="col-md-7 col-lg-8 rounded-top">
-                        {{ form.known_aliases }}
-                    </div>
-                </div>
-                <!-- Associates -->
-                <div class="row mb-2 align-items-start">
-                    <div class="col-md-5 col-lg-4">
-                        <label class="form-label fw-bold" for="id_associates">Associates:</label>
-                    </div>
-                    <div class="col-md-7 col-lg-8 rounded-top">
-                        {{ form.associates }}
-                    </div>
-                </div>
-                <!-- Arresting Officer -->
-                <div class="row mb-2 align-items-start">
-                    <div class="col-md-5 col-lg-4">
-                        <label class="form-label fw-bold" for="id_arresting_officer">Arresting Officer:</label>
-                    </div>
-                    <div class="col-md-7 col-lg-8 rounded-top">
-                        {{ form.arresting_officer }}
-                    </div>
-                </div>
-                <!-- Case Number -->
-                <div class="row mb-2 align-items-start">
-                    <div class="col-md-5 col-lg-4">
-                        <label class="form-label fw-bold" for="id_case_number">Case Number:</label>
-                    </div>
-                    <div class="col-md-7 col-lg-8 rounded-top">
-                        {{ form.case_number }}
-                    </div>
-                </div>
-                <!-- Is Incarcerated -->
-                <div class="row mb-2 align-items-start">
-                    <div class="col-md-5 col-lg-4">
-                        <label class="form-label fw-bold" for="id_is_incarcerated">Is Incarcerated:</label>
-                    </div>
-                    <div class="col-md-7 col-lg-8 rounded-top">
-                        {{ form.is_incarcerated }}
-                    </div>
-                </div>
-                <!-- Is Wanted -->
-                <div class="row mb-2 align-items-start">
-                    <div class="col-md-5 col-lg-4">
-                        <label class="form-label fw-bold" for="id_is_wanted">Is Wanted:</label>
-                    </div>
-                    <div class="col-md-7 col-lg-8 rounded-top">
-                        {{ form.is_wanted }}
-                    </div>
-                </div>
-                <!-- Submit and Cancel Buttons -->
-                <div class="float-end mt-4" role="group" aria-label="Basic example">
-                    <button type="submit" class="btn btn-primary p-3 px-5 fw-bold">Save</button>
-                    <a href="{% url 'criminal_list' %}" class="btn btn-gray p-3 px-4 fw-bold">Cancel</a>
-                </div>
+            </div>
+            <div class="col-6">
+<!-- Address -->
+<div class="row mb-2 align-items-start">
+    <div class="col-md-5 col-lg-4">
+        <label class="form-label fw-bold" for="id_address">Address:</label>
+    </div>
+    <div class="col-md-7 col-lg-8 rounded-top">
+        {{ form.address }}
+    </div>
+</div>
+<!-- Contact Info -->
+<div class="row mb-2 align-items-start">
+    <div class="col-md-5 col-lg-4">
+        <label class="form-label fw-bold" for="id_contact_info">Phone Number:</label>
+    </div>
+    <div class="col-md-7 col-lg-8 rounded-top">
+        {{ form.contact_info }}
+    </div>
+</div>
+<!-- Distinctive Features -->
+<div class="row mb-2 align-items-start">
+    <div class="col-md-5 col-lg-4">
+        <label class="form-label fw-bold" for="id_distinctive_features">Distinctive Features:</label>
+    </div>
+    <div class="col-md-7 col-lg-8 rounded-top">
+        {{ form.distinctive_features }}
+    </div>
+</div>
+<!-- Next of Kin -->
+<div class="row mb-2 align-items-start">
+    <div class="col-md-5 col-lg-4">
+        <label class="form-label fw-bold" for="id_next_of_kin">Next of Kin:</label>
+    </div>
+    <div class="col-md-7 col-lg
+    -8 rounded-top">
+        {{ form.next_of_kin }}
+    </div>
+</div>
+<!-- Finger Print -->
+<!-- <div class="row mb-2 align-items-start">
+    <div class="col-md-5 col-lg-4">
+        <label class="form-label fw-bold" for="id_finger_print">Finger Print:</label>
+    </div>
+    <div class="col-md-7 col-lg-8 rounded-top">
+        {{ form.finger_print }}
+    </div>
+</div> -->
+<!-- Mugshot -->
+<div class="row mb-2 align-items-start">
+    <div class="col-md-5 col-lg-4">
+        <label class="form-label fw-bold" for="id_mugshot">Mugshot:</label>
+    </div>
+    <div class="col-md-7 col-lg-8 rounded-top">
+        {{ form.mugshot }}
+    </div>
+</div>
+<!-- Known Aliases -->
+<div class="row mb-2 align-items-start">
+    <div class="col-md-5 col-lg-4">
+        <label class="form-label fw-bold" for="id_known_aliases">Known Aliases:</label>
+    </div>
+    <div class="col-md-7 col-lg-8 rounded-top">
+        {{ form.known_aliases }}
+    </div>
+</div>
+<!-- Associates -->
+<div class="row mb-2 align-items-start">
+    <div class="col-md-5 col-lg-4">
+        <label class="form-label fw-bold" for="id_associates">Associates:</label>
+    </div>
+    <div class="col-md-7 col-lg-8 rounded-top">
+        {{ form.associates }}
+    </div>
+</div>
+<!-- Arresting Officer -->
+<div class="row mb-2 align-items-start">
+    <div class="col-md-5 col-lg-4">
+        <label class="form-label fw-bold" for="id_arresting_officer">Arresting Officer:</label>
+    </div>
+    <div class="col-md-7 col-lg-8 rounded-top">
+        {{ form.arresting_officer }}
+    </div>
+</div>
+<!-- Case Number -->
+<div class="row mb-2 align-items-start">
+    <div class="col-md-5 col-lg-4">
+        <label class="form-label fw-bold" for="id_case_number">Case Number:</label>
+    </div>
+    <div class="col-md-7 col-lg-8 rounded-top">
+        {{ form.case_number }}
+    </div>
+</div>
+<!-- Is Incarcerated -->
+<div class="row mb-2 align-items-start">
+    <div class="col-md-5 col-lg-4">
+        <label class="form-label fw-bold" for="id_is_incarcerated">Is Incarcerated:</label>
+    </div>
+    <div class="col-md-7 col-lg-8 rounded-top">
+        {{ form.is_incarcerated }}
+    </div>
+</div>
+<!-- Is Wanted -->
+<div class="row mb-2 align-items-start">
+    <div class="col-md-5 col-lg-4">
+        <label class="form-label fw-bold" for="id_is_wanted">Is Wanted:</label>
+    </div>
+    <div class="col-md-7 col-lg-8 rounded-top">
+        {{ form.is_wanted }}
+    </div>
+</div>
+<!-- Submit and Cancel Buttons -->
+<div class="float-end mt-4" role="group" aria-label="Basic example">
+    <button type="submit" class="btn btn-primary p-3 px-5 fw-bold">Save</button>
+    <a href="{% url 'criminal_list' %}" class="btn btn-gray p-3 px-4 fw-bold">Cancel</a>
+</div>
             </div>
         </div>
     </form>

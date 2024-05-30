@@ -7,7 +7,7 @@
             <h1 class="fw-bold fs-2">Officers Page</h1>
         </div>
         <div class="col-6 ">
-            <a href="{% url 'officer_create' %}" class="btn btn-primary p-3 float-end"><i class="fa fa-plus"></i> Add New Officer</a>
+            <!-- <a href="{% url 'officer_create' %}" class="btn btn-primary p-3 float-end"><i class="fa fa-plus"></i> Add New Officer</a> -->
         </div>
     </div>
     <div class="row">
@@ -18,7 +18,7 @@
                     <th scope="col">Sex</th>
                     <th scope="col">Rank</th>
                     <th scope="col">Badge Number</th>
-                    <th scope="col">Actions</th>
+                    <th scope="col">Duty Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -28,10 +28,7 @@
                         <td class="text-capitalize">{{ officer.sex }}</td>
                         <td class="text-capitalize">{{ officer.rank }}</td>
                         <td class="text-capitalize">{{ officer.badge_number }}</td>
-                        <td>
-                            <a href="{% url 'officer_update' officer.pk %}">Edit</a> | 
-                            <a href="{% url 'officer_delete' officer.pk %}">Delete</a>
-                        </td>
+                        <td class="text-capitalize">{{ officer.duty_status }}</td>
                     </tr>
                 {% endfor %}
             </tbody>

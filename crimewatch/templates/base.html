@@ -67,7 +67,7 @@
     <!-- Page Content -->
     <div class="container-fluid">
         <div class="row">
-        <div class="col-2 vert-bar p-3 d-none d-sm-block">
+        <div class="vert-bar d-none d-sm-block">
             <ul class="navbar-nav">
                 <li class="nav-item my-1  py-2 row align-items-start"> 
                     <i class="col-3 fa fa-house text-center"></i>
@@ -82,8 +82,8 @@
                     <a class="col-9 nav-link p-0 m-0" href="{% url 'criminal_create' %}">Book a Criminal</a>
                   </li>
                   <li class="nav-item my-1 py-2 row align-items-start">
-                    <i class="col-3 fa fa-chart-line text-center"></i>
-                    <a class="col-9 nav-link p-0 m-0" href="#">Reports</a>
+                    <i class="col-3 fa fa-user text-center"></i>
+                    <a class="col-9 nav-link p-0 m-0" href="{% url 'officer_list' %}">Officers</a>
                   </li>
                   <li class="nav-item my-1 py-2 row align-items-start">
                     <i class="col-3 fa fa-user text-center"></i>
@@ -95,7 +95,7 @@
                   </li>
               </ul>
         </div>
-        <div class="content col-10">
+        <div class="content">
             {% block content %}{% endblock %}
         </div>
         </div>

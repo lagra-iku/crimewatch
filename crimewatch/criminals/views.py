@@ -37,3 +37,11 @@ def criminal_delete(request, pk):
         criminal.delete()
         return redirect('criminal_list')
     return render(request, 'criminal_delete.html', {'criminal': criminal})
+
+def male_criminals_list(request):
+    criminals = CriminalRecord.objects.filter(gender='male')
+    return render(request, 'criminal_filter.html', {'criminals': criminals, 'title': 'Male Criminals'})
+
+def female_criminals_list(request):
+    criminals = CriminalRecord.objects.filter(gender='female')
+    return render(request, 'criminal_filter.html', {'criminals': criminals, 'title': 'Female Criminals'})
