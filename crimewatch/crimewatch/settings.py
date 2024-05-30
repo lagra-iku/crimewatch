@@ -19,6 +19,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # MEDIA_URL is the URL that handles the media served from MEDIA_ROOT.
 MEDIA_URL = '/media/'
 
+# Login Url
+LOGIN_URL = '/login/' 
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 

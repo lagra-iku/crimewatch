@@ -16,6 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from .views import home
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
@@ -27,6 +28,9 @@ urlpatterns = [
     path('officers/', include('officers.urls')),
     path('search/', views.search_results, name='search_results'),
     path('admin/', admin.site.urls),
+    path('login/', views.login, name='login'),
+    path('profile/', views.profile, name='profile'),
+    
 ]
 
 if settings.DEBUG:

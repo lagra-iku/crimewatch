@@ -2,13 +2,17 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import CriminalCase, CrimeSubcategory
 from .forms import CriminalCaseForm
 from django.http import JsonResponse
+from django.contrib.auth.decorators import login_required
 
+
+@login_required
 def load_subcategories(request):
     crime_type_id = request.GET.get('crime_type')
     subcategories = CrimeSubcategory.objects.filter(crime_type_id=crime_type_id).order_by('name')
     return JsonResponse(list(subcategories.values('id', 'name')), safe=False)
 
 # Create a new criminal case
+@login_required
 def case_create(request):
     if request.method == 'POST':
         form = CriminalCaseForm(request.POST, request.FILES)
@@ -20,11 +24,13 @@ def case_create(request):
     return render(request, 'case_form.html', {'form': form})
 
 # List all cases
+@login_required
 def case_list(request):
     cases = CriminalCase.objects.all()
     return render(request, 'case_list.html', {'cases': cases})
 
 # Update an existing case
+@login_required
 def case_update(request, pk):
     criminal_case = get_object_or_404(CriminalCase, pk=pk)
     if request.method == 'POST':
@@ -37,6 +43,7 @@ def case_update(request, pk):
     return render(request, 'case_form.html', {'form': form})
 
 # Delete a case
+@login_required
 def case_delete(request, pk):
     criminal_case = get_object_or_404(CriminalCase, pk=pk)
     if request.method == 'POST':
@@ -44,10 +51,14 @@ def case_delete(request, pk):
         return redirect('case_list')
     return render(request, 'case_delete.html', {'case': criminal_case})
 
+
+@login_required
 def open_cases_list(request):
     cases = CriminalCase.objects.filter(case_status='in-progress')
     return render(request, 'case_filter.html', {'cases': cases, 'title': 'Open Cases'})
 
+
+@login_required
 def closed_cases_list(request):
     cases = CriminalCase.objects.filter(case_status='closed')
     return render(request, 'case_filter.html', {'cases': cases, 'title': 'Closed Cases'})
