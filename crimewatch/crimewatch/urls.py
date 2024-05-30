@@ -25,6 +25,7 @@ urlpatterns = [
     path('criminals/', include('criminals.urls')),
     path('cases/', include('cases.urls')),
     path('officers/', include('officers.urls')),
+    path('search/', views.search_results, name='search_results'),
     path('admin/', admin.site.urls),
 ]
 

@@ -3,7 +3,7 @@
 body {
     font-family: 'Montserrat', sans-serif !important;
     background-color: #FFFFF0 !important;
-    color: var(--charcoal) !important;
+    /* color: var(--charcoal) !important; */
   }
 
 :root {
@@ -91,7 +91,7 @@ color:white;
 } */
 
 .content {
-    width:80%;
+    width:60%;
     margin: auto 0 0 20%;
     background-color: #FFFFF0;
 }
