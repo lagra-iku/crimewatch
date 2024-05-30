@@ -34,12 +34,19 @@
              
             </form>   
           </div> 
-                <div class="col-md-3 d-none d-sm-block">
-            <ul class="navbar-nav ml-3 justify-content-end">
-                <li class="nav-item">
-                    <a class="nav-link text-white text-capitalize" href="#">Welcome {{ username }} <i class="fa fa-user"></i></a>
-                </li>
-            </ul></div>
+                <div class="col-md-3 d-none d-sm-block float-end">
+                  {% if user.is_authenticated %}
+                  <ul class="navbar-nav ml-3 justify-content-end">
+                  <li class="dropdown nav-item">
+                      <a href="#" class="dropdown-toggle nav-link text-white text-capitalize" data-bs-toggle="dropdown">Welcome, {{ user.username }} <i class="fa fa-user"></i> <b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                          <li><a href="{% url 'logout' %}" class="text-decoration-none px-2 text-black">Logout</a></li>
+                      </ul>
+                  </li></ul>
+                  {% else %}
+                  <li><a href="{% url 'login' %}">Login</a></li>
+                  {% endif %}
+          </div>
 
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
@@ -84,33 +91,33 @@
         <div class="row">
         <div class="vert-bar d-none d-sm-block">
             <ul class="navbar-nav">
-                <li class="nav-item my-1  py-2 row align-items-start"> 
-                    <i class="col-3 fa fa-house text-center"></i>
-                    <a class="col-9 nav-link p-0 m-0" href="{% url 'home' %}">Home</a>
-                  </li>
-                  <li class="nav-item my-1  py-2 row align-items-start">
-                    <i class="col-3 fa fa-file text-center"></i>
-                    <a class="col-9 nav-link p-0 m-0" href="{% url 'case_create' %}">Book a Case</a>
-                  </li>
-                  <li class="nav-item my-1  py-2 row align-items-start">
-                    <i class="col-3 fa fa-handcuffs text-center"></i>
-                    <a class="col-9 nav-link p-0 m-0" href="{% url 'criminal_create' %}">Book a Criminal</a>
-                  </li>
-                  <li class="nav-item my-1 py-2 row align-items-start">
-                    <i class="col-3 fa fa-user text-center"></i>
-                    <a class="col-9 nav-link p-0 m-0" href="{% url 'officer_list' %}">Officers</a>
-                  </li>
-                  <li class="nav-item my-1 py-2 row align-items-start">
-                    <i class="col-3 fa fa-user text-center"></i>
-                    <a class="col-9 nav-link p-0 m-0" href="{% url 'profile' %}">Profile</a>
-                  </li>
-                  <li class="nav-item my-1 py-2 row align-items-start">
-                    <i class="col-3 fa fa-gear text-center"></i>
-                    <a class="col-9 nav-link p-0 m-0" href="{% url 'admin:index' %}">Admin</a>
-                  </li>
+              <li class="nav-item my-1 mx-1 p-2 text-white row align-items-start"> 
+                <i class="col-2 fa fa-house text-center"></i>
+                <a class="col-10 nav-link p-0 m-0" href="{% url 'home' %}">Home</a>
+              </li>
+              <li class="nav-item my-1 mx-1 p-2 text-white row align-items-start">
+                <i class="col-2 fa fa-file text-center"></i>
+                <a class="col-10 nav-link p-0 m-0" href="{% url 'case_list' %}">Book a Case</a>
+              </li>
+              <li class="nav-item my-1 mx-1 p-2 text-white row align-items-start">
+                <i class="col-2 fa fa-handcuffs text-center"></i>
+                <a class="col-10 nav-link p-0 m-0" href="#">Book a Criminal</a>
+              </li>
+              <li class="nav-item my-1 mx-1 p-2 text-white row align-items-start">
+                <i class="col-2 fa fa-chart-line text-center"></i>
+                <a class="col-10 nav-link p-0 m-0" href="#">Reports</a>
+              </li>
+              <li class="nav-item my-1 mx-1 p-2 text-white row align-items-start">
+                <i class="col-2 fa fa-user text-center"></i>
+                <a class="col-10 nav-link p-0 m-0" href="#">Profile</a>
+              </li>
+              <li class="nav-item my-1 mx-1 p-2 text-white row align-items-start">
+                <i class="col-2 fa fa-gear text-center"></i>
+                <a class="col-10 nav-link p-0 m-0" href="#">Admin</a>
+              </li>
               </ul>
         </div>
-        <div class="content">
+        <div class="content pt-3">
             {% block content %}{% endblock %}
         </div>
         </div>

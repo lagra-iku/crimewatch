@@ -67,7 +67,7 @@ def logout_view(request):
 
 
 @login_required
-def profile(request):
+def profile_view(request):
     user = request.user
     context = {
         'username': user.username,
