@@ -36,4 +36,4 @@ class Officer(models.Model):
 
 
     def __str__(self):
-        return self.name
+        return f"{self.rank} {self.name}"

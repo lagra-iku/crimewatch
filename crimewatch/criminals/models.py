@@ -3,6 +3,7 @@ import random
 import string
 from officers.models import Officer
 from phonenumber_field.modelfields import PhoneNumberField
+from cases.models import CriminalCase
 
 
 def generate_case_number():
@@ -48,6 +49,7 @@ class CriminalRecord(models.Model):
     gender = models.CharField(max_length=10, choices=SEX_CHOICES,default="Male")
     nin = models.CharField(max_length=100, unique=True)
     address = models.CharField(max_length=255, blank=True)
+    associated_cases = models.ForeignKey(CriminalCase, on_delete=models.CASCADE, blank=True, null=True)
     contact_info = PhoneNumberField(max_length=100, blank=True)
     distinctive_features = models.CharField(max_length=255, blank=True)
     next_of_kin = models.CharField(max_length=255, blank=True)
@@ -61,7 +63,7 @@ class CriminalRecord(models.Model):
     is_wanted = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"{self.first_name} {self.middle_name} {self.surname}, {self.arresting_officer}, {self.nin}, {self.case_number}, {self.date_of_birth}, {self.tribe}, {self.religion}, {self.marital_status}, {self.height_in_meters}, {self.weight_in_kg}"
+        return f"Case Number: {self.case_number}, Name: {self.first_name} {self.middle_name} {self.surname}, Arresting Officer: {self.arresting_officer}, Date: {self.date_of_birth}, {self.tribe}, {self.religion}, {self.marital_status}, {self.height_in_meters}, {self.weight_in_kg}"
 
   
 class LogIn(models.Model):

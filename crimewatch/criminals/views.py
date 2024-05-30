@@ -20,6 +20,7 @@ def criminal_list(request):
     criminals = CriminalRecord.objects.all()
     return render(request, 'criminal_list.html', {'criminals': criminals})
 
+
 # Update a criminal
 @login_required
 def criminal_update(request, pk):
@@ -33,6 +34,7 @@ def criminal_update(request, pk):
         form = CriminalForm(instance=criminal)
     return render(request, 'criminal_form.html', {'form': form})
 
+
 # Delete a criminal
 @login_required
 def criminal_delete(request, pk):
@@ -41,6 +43,7 @@ def criminal_delete(request, pk):
         criminal.delete()
         return redirect('criminal_list')
     return render(request, 'criminal_delete.html', {'criminal': criminal})
+
 
 @login_required
 def male_criminals_list(request):
