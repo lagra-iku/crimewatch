@@ -16,7 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from .views import home, login
+from .views import home, login, profile
+from .views import home
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('', home, name='home'),
     path('criminals/', include('criminals.urls')),
@@ -24,4 +28,9 @@ urlpatterns = [
     path('officers/', include('officers.urls')),
     path('admin/', admin.site.urls),
     path('login/', login, name='login'),
+    path('profile/', profile, name='profile'),
+    
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

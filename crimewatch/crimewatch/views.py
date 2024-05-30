@@ -1,7 +1,8 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 # Create a new criminal case
 def home(request):
@@ -20,6 +21,16 @@ def login(request):
     return render(request, 'login.html')
 
 
+@login_required
 def profile(request):
     if request.user.is_authenticated:
-        return render(request, 'profile.html')
+        context = {
+            'username': request.user.username,
+            'first_name': request.user.first_name,
+            'last_name': request.user.last_name,
+            'email': request.user.email,
+            'rank': request.user.rank 
+        }
+        return render(request, 'profile.html', context)
+    else:
+        return redirect('login')

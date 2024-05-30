@@ -17,7 +17,7 @@ class Officer(models.Model):
 
     name = models.CharField(max_length=100)
     sex = models.CharField(max_length=10, choices=SEX_CHOICES, default="Male")
-    rank = models.CharField(max_length=100, choices=RANK_CHOICES)
+    rank = models.CharField(max_length=100, choices=RANK_CHOICES, blank=True)
     badge_number = models.IntegerField(unique=True)
     area = models.CharField(max_length=100)
     date_of_birth = models.DateField()

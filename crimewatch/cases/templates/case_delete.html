@@ -3,7 +3,7 @@
 {% block content %}
 <div class="d-flex justify-content-center align-items-center" style="height:50vh">
     <div class="text-center">
-        <p class="fs-1">Are you sure you want to delete case <span class="text-capitalize fw-bold">{{  criminalcase.case_number }}</span>?</p>
+        <p class="fs-1">Are you sure you want to delete case <span class="text-capitalize fw-bold">{{  case.case_number }}</span>?</p>
         <form method="post">
             {% csrf_token %}
             <div>

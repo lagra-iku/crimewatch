@@ -6,4 +6,5 @@ urlpatterns = [
     path('create/', views.case_create, name='case_create'),
     path('update/<int:pk>/', views.case_update, name='case_update'),
     path('delete/<int:pk>/', views.case_delete, name='case_delete'),
+    path('ajax/load-subcategories/', views.load_subcategories, name='ajax_load_subcategories'),
 ]
