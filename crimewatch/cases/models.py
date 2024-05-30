@@ -37,6 +37,7 @@ class CriminalCase(models.Model):
     pictures_of_evidence = models.ImageField(upload_to='src/images/', null=True)
     case_officer = models.ForeignKey(Officer, on_delete=models.CASCADE, null=True)
 
+
     def save(self, *args, **kwargs):
         if not self.case_number:
             self.case_number = self._generate_case_number()

@@ -2,19 +2,29 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import CriminalRecord
 from .forms import CriminalForm
 from django.contrib.auth.decorators import login_required
+from crimewatch.views import home
 
 
-#@login_required
+@login_required
 def criminal_create(request):
     if request.method == 'POST':
         # Print request.POST data
         print(request.POST)
+        print(request.FILES)
 
-        form = CriminalForm(request.POST)
+        form = CriminalForm(request.POST, request.FILES)
         if form.is_valid():
             print("Form is valid")
-            form.save()
-            return redirect('criminal_list')
+            # Additional debug prints
+            print("Cleaned Data:", form.cleaned_data)
+            try:
+                criminal_record = form.save()
+                print("Criminal Record saved:", criminal_record)
+                return redirect('criminal_list')
+            except Exception as e:
+                print("Error while saving:", e)
+        else:
+            print("Form errors:", form.errors)
     else:
         form = CriminalForm()
         print("Form not valid")

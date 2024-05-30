@@ -13,7 +13,7 @@ class CriminalForm(forms.ModelForm):
             'distinctive_features': forms.TextInput(attrs={'placeholder': 'Scars, Tribal marks, Tattoos, Piercings, etc.'}),
             'contact_info': forms.TextInput(attrs={'placeholder': 'Enter phone number'}),
         }
-    
+
 
 class LogInForm(forms.ModelForm):
     """Form for the login model"""
