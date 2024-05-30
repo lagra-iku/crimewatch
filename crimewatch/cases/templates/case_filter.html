@@ -30,27 +30,11 @@
                             <a href="{% url 'case_delete' case.pk %}">Delete</a>
                         </td>
                     </tr>
+                {% empty %}
+                    <p class="text-danger">No cases available.</p>
                 {% endfor %}
             </tbody>
         </table>
     </div>
 </div>
 {% endblock %}
-
-
-
-    <title>{{ title }}</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-</head>
-<body>
-    <h1>{{ title }}</h1>
-    <ul>
-        {% for case in cases %}
-            <li>{{ case.case_number }} - {{ case.case_status }}</li>
-        {% empty %}
-            <li>No cases available.</li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'home' %}">Back to Home</a>
-</body>
-</html>
