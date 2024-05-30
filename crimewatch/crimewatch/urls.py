@@ -28,8 +28,8 @@ urlpatterns = [
     path('officers/', include('officers.urls')),
     # path('search/', views.search_results, name='search_results'),
     path('admin/', admin.site.urls),
-    # path('login/', login, name='login'),
-    # path('profile/', profile, name='profile'),
+    path('login/', views.login, name='login'),
+    path('profile/', views.profile, name='profile'),
     
 ]
 
