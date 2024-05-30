@@ -1,16 +1,9 @@
 {% extends 'base.html' %}
-{% block title %}Criminal list{% endblock %}
+{% block title %}Criminals{% endblock %}
 {% block content %}
-<div class="container-fluid p-5">
-    <div class="row mb-5">
-        <div class="col-6">
-            <h1 class="fw-bold fs-2">Criminals Page</h1>
-        </div>
-        <div class="col-6 ">
-            <a href="{% url 'criminal_create' %}" class="btn btn-primary p-3 float-end"><i class="fa fa-plus"></i> Add New Criminal</a>
-        </div>
-    </div>
-    <div class="row">
+<div class="container-fluid mt-3">
+    <h1 class="fw-bold fs-4">{{ title }}</h1>
+    <div class="row mt-3">
         <table class="table w-75">
             <thead>
                 <tr>
@@ -33,9 +26,11 @@
                             <a href="{% url 'criminal_delete' criminal.pk %}">Delete</a>
                         </td>
                     </tr>
+                {% empty %}
+                    <p class="text-danger">No criminals in this category</p>
                 {% endfor %}
             </tbody>
         </table>
     </div>
 </div>
-{% endblock %}
+ {% endblock %}

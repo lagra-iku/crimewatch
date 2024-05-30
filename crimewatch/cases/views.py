@@ -43,3 +43,11 @@ def case_delete(request, pk):
         criminal_case.delete()
         return redirect('case_list')
     return render(request, 'case_delete.html', {'case': criminal_case})
+
+def open_cases_list(request):
+    cases = CriminalCase.objects.filter(case_status='in-progress')
+    return render(request, 'case_filter.html', {'cases': cases, 'title': 'Open Cases'})
+
+def closed_cases_list(request):
+    cases = CriminalCase.objects.filter(case_status='closed')
+    return render(request, 'case_filter.html', {'cases': cases, 'title': 'Closed Cases'})

@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'criminals',
     'officers',
     'cases',
+    'phonenumber_field',
 ]
 
 MIDDLEWARE = [

@@ -1,17 +1,60 @@
 {% extends 'base.html' %}
 {% block title %}Home{% endblock %}
 {% block content %}
-    <div class="container-fluid p-5">
+    <div class="container-fluid">
+        <div class="row pt-4">
         <div class="col-md-8">
-            <div class="">
-                <a href="{% url 'criminal_list' %}" class="btn btn-secondary btn-lg m-1 p-4 fw-bold">Criminal Data</a>
-                <a href="{% url 'case_list' %}" class="btn btn-secondary btn-lg m-1 p-4 fw-bold">View Cases</a>
-                <a href="{% url 'officer_list' %}" class="btn btn-secondary btn-lg m-1 p-4 fw-bold">View Officers</a>
-              </div>
+            <h5 class="fw-bold">Links</h5>
+            <div class="d-inline-block">
+                <a href="{% url 'criminal_list' %}" class="btn btn-secondary m-1 py-3 w-25"><span class="fw-bold">Criminal Data</span></a>
+                <a href="{% url 'case_list' %}" class="btn btn-secondary m-1 py-3 w-25"><span class="fw-bold">View Cases</span></a>
+                <a href="{% url 'officer_list' %}" class="btn btn-secondary m-1 py-3 w-25"><span class="fw-bold">View Officers</span></a>
+            </div>
+            <div class="row pt-4">
+                <div class="col-6">
+                    <h5 class="fw-bold">Case Counts</h5>
+                    <div class="d-flex">
+                        <a href="{% url 'open_cases_list' %}" class="btn btn-gray w-50 m-1"> <span class="fs-1 fw-bold">{{ open_cases_count }} </span><br> Opened </a>
+                        <a href="{% url 'closed_cases_list' %}" class="btn btn-gray w-50 m-1"> <span class="fs-1 fw-bold">{{ closed_cases_count }}</span> <br> Closed</a>
+                     </div>
+                </div>
+                <div class="col-6">
+                    <h5 class="fw-bold">Criminal Counts</h5>
+                    <div class="d-flex">
+                        <a href="{% url 'female_criminals_list' %}" class="btn btn-gray w-50 m-1"> <span class="fs-1 fw-bold">{{ female_criminals_count }} </span><br> Females </a>
+                        <a href="{% url 'male_criminals_list' %}" class="btn btn-gray w-50 m-1"> <span class="fs-1 fw-bold">{{ male_criminals_count }}</span> <br> Males </a>
+                     </div>
+                </div>
+            </div>
+            <div class="row pt-4">
+                <div class="col-md-6">
+                    <h5 class="fw-bold">Officers on Duty</h5>
+                    <table class="table border">
+                        <thead>
+                            <tr class="">
+                                <th scope="col">Name</th>
+                                <th scope="col">Rank</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for officer in officers_on_duty %}
+                                <tr>
+                                    <td class="text-capitalize">{{ officer.name }}</td>
+                                    <td class="text-capitalize">{{ officer.rank }}</td>
+                                </tr>
+                            {% empty %}
+                                <p>There are no officers on duty.</p>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+        
+            </div>
                 
         </div>
         <div class="col-md-4">
-
         </div>
+    </div>
+
     </div>
 {% endblock %}
