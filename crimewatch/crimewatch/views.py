@@ -3,11 +3,14 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login as auth_login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.utils import timezone
+from datetime import date
 from officers.models import Officer
 from cases.models import CriminalCase
 from criminals.models import CriminalRecord
 from django.db.models import Q
 from criminals.forms import LogInForm
+
 
 # Create a new criminal case
 @login_required
@@ -22,12 +25,17 @@ def home(request):
     female_criminals_count = CriminalRecord.objects.filter(gender='female').count()
     male_criminals_count = CriminalRecord.objects.filter(gender='male').count()
 
+    #Get today's cases
+    today = date.today()
+    today_cases = CriminalCase.objects.filter(event_date=today)
+
     context = {
         'officers_on_duty': officers_on_duty,
         'open_cases_count': open_cases_count,
         'closed_cases_count': closed_cases_count,
         'female_criminals_count': female_criminals_count,
         'male_criminals_count': male_criminals_count,
+        'today_cases' :  today_cases,
     }
     return render(request, 'home.html', context)
 

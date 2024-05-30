@@ -6,12 +6,12 @@
     <div class="row">
         <h2 class="fs-2 mt-3">Criminals</h2>
             {% for criminal in criminals %}
-            <div class="row border text-white m-3 p-1">
+            <div class="row border text-white m-auto p-1">
                 <p><span class="fw-bold">Name:</span> {{ criminal.name }}</p>
                 <p><span class="fw-bold">Aliases:</span> {{ criminal.known_aliases }}</p>
             </div>
             {% empty %}
-            <div class="row border text-white m-3 p-1">
+            <div class="row border text-white m-auto p-1">
                 <p>No criminal found</p>
             </div>
             {% endfor %}
@@ -19,12 +19,12 @@
     <div class="row">
         <h2 class="fs-2 mt-3">Cases</h2>
             {% for case in cases %}
-            <div class="row border text-white m-3 p-1">
+            <div class="row border text-white m-auto p-1">
                 <p><span class="fw-bold">Case Number:</span> {{ case.case_number }}</p>
                 <p><span class="fw-bold">Case Description:</span> {{ case.case_description }}</p>
             </div>
             {% empty %}
-            <div class="row border text-white m-3 p-1">
+            <div class="row border text-white m-auto p-1">
                 <p>No case found</p>
             </div>
             {% endfor %}
