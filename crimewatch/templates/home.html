@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}Home{% endblock %}
+{% load static %}
 {% block content %}
     <div class="container-fluid">
         <div class="row pt-4">
@@ -27,23 +28,33 @@
                 </div>
             </div>
             <div class="row pt-4">
-                <div class="col-md-6">
-                    <h5 class="fw-bold">Officers on Duty</h5>
+                <div class="col-md-12">
+                    <h5 class="fw-bold">Opened Cases for Today</h5>
                     <table class="table border">
                         <thead>
                             <tr class="">
                                 <th scope="col">Name</th>
-                                <th scope="col">Rank</th>
+                                <th scope="col">Crime Type</th>
+                                <th scope="col">Sub Category</th>
+                                <th scope="col">Crime Location</th>
+                                <th scope="col">Case Officer</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {% for officer in officers_on_duty %}
+                            {% for case in today_cases %}
                                 <tr>
-                                    <td class="text-capitalize">{{ officer.name }}</td>
-                                    <td class="text-capitalize">{{ officer.rank }}</td>
+                                    <td class="text-capitalize">{{ case.case_number }}</td>
+                                    <td class="text-capitalize">{{ case.crime_type.name }}</td>
+                                    <td class="text-capitalize">{{ case.crime_subcategory.name }}</td>
+                                    <td class="text-capitalize">{{ case.location_of_crime}}</td>
+                                    <td class="text-capitalize">{{ case.case_officer}}</td>
+                                    <td>
+                                        <a href="{% url 'case_update' criminal.pk %}">Edit</a> |
+                                    </td>
                                 </tr>
                             {% empty %}
-                                <p>There are no officers on duty.</p>
+                                <p class="text-success">There are no new cases for today</p>
                             {% endfor %}
                         </tbody>
                     </table>
@@ -53,6 +64,30 @@
                 
         </div>
         <div class="col-md-4">
+            <div class="row pb-3">
+                <img src="{% static 'images/Naija Eagle1.png' %}" alt="Naija Eagle" class="img-fluid border rounded-circle w-75 mx-auto">
+            </div>
+            <div class="row">
+                <h5 class="fw-bold">Officers on Duty</h5>
+                <table class="table border">
+                    <thead>
+                        <tr class="">
+                            <th scope="col">Name</th>
+                            <th scope="col">Rank</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for officer in officers_on_duty %}
+                            <tr>
+                                <td class="text-capitalize">{{ officer.name }}</td>
+                                <td class="text-capitalize">{{ officer.rank }}</td>
+                            </tr>
+                        {% empty %}
+                            <p>There are no officers on duty.</p>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
