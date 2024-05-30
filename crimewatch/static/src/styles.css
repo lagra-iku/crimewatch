@@ -2,8 +2,8 @@
 
 body {
     font-family: 'Montserrat', sans-serif !important;
-    background-color: #FFFFF0 !important;
-    /* color: var(--charcoal) !important; */
+    /* background-color: #FFFFF0 !important; */
+    color: var(--charcoal) !important;
   }
 
 :root {
@@ -91,13 +91,13 @@ color:white;
 } */
 
 .content {
-    width:60%;
+    width:80% !important;
     margin: auto 0 0 20%;
-    background-color: #FFFFF0;
 }
 
 @media screen and (max-width: 600px) {
     .content{
         margin:0;
+        width:100% !important;
     }
 }
