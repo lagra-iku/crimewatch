@@ -11,7 +11,7 @@ def generate_case_number():
     letter = string.ascii_letters
     numbers = string.digits
     letters = letter.upper()
-    return ''.join(random.choices(letters, k=2)) + '-'.join(random.choices(numbers, k=6))
+    return ''.join(random.choices(letters, k=2)) +'-'+ ''.join(random.choices(numbers, k=6))
 
 class CriminalRecord(models.Model):
     """Criminal's personal information Class"""
@@ -57,7 +57,7 @@ class CriminalRecord(models.Model):
     known_aliases = models.CharField(max_length=255, blank=True)
     associates = models.CharField(max_length=255, blank=True)
     arresting_officer = models.ForeignKey(Officer, on_delete=models.CASCADE, blank=True)
-    case_number = models.CharField(max_length=9, default=generate_case_number, unique=True)
+    case_number = models.CharField(max_length=10, default=generate_case_number, unique=True)
     is_incarcerated = models.BooleanField(default=True)
     is_wanted = models.BooleanField(default=False)
 

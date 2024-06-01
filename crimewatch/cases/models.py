@@ -34,7 +34,7 @@ class CriminalCase(models.Model):
     known_suspects = models.CharField(max_length=255)
     arrested_suspects = models.CharField(max_length=255)
     case_status = models.CharField(max_length=12, choices=CASE_STATUS_CHOICES)
-    pictures_of_evidence = models.ImageField(upload_to='src/images/', null=True)
+    pictures_of_evidence = models.ImageField(upload_to='src/images/', null=True, blank=True)
     case_officer = models.ForeignKey(Officer, on_delete=models.CASCADE, null=True)
 
 
