@@ -8,9 +8,10 @@ from cases.models import CriminalCase
 
 def generate_case_number():
     """Helper function to generate a random case number for a criminal record"""
-    letters = string.ascii_letters
+    letter = string.ascii_letters
     numbers = string.digits
-    return ''.join(random.choices(letters, k=2)) + ''.join(random.choices(numbers, k=6))
+    letters = letter.upper()
+    return ''.join(random.choices(letters, k=2)) + '-'.join(random.choices(numbers, k=6))
 
 class CriminalRecord(models.Model):
     """Criminal's personal information Class"""
