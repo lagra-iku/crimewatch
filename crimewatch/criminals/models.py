@@ -4,7 +4,7 @@ import string
 from officers.models import Officer
 # from phonenumber_field.modelfields import PhoneNumberField
 from cases.models import CriminalCase
-
+from django.utils import timezone
 
 def generate_case_number():
     """Helper function to generate a random case number for a criminal record"""
@@ -60,6 +60,11 @@ class CriminalRecord(models.Model):
     case_number = models.CharField(max_length=10, default=generate_case_number, unique=True)
     is_incarcerated = models.BooleanField(default=True)
     is_wanted = models.BooleanField(default=False)
+    
+    def date(self, *args, **kwargs):
+        if self.date_of_arrest and timezone.is_naive(self.date_of_arrest):
+            self.date_of_arrest = timezone.make_aware(self.date_of_arrest, timezone.get_current_timezone())
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return f"Case Number: {self.case_number}, Name: {self.first_name} {self.middle_name} {self.surname}, Arresting Officer: {self.arresting_officer}, Date: {self.date_of_birth}, {self.tribe}, {self.religion}, {self.marital_status}, {self.height_in_meters}, {self.weight_in_kg}"
