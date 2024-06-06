@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login as auth_login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -10,6 +10,7 @@ from cases.models import CriminalCase
 from criminals.models import CriminalRecord
 from django.db.models import Q
 from criminals.forms import LogInForm
+from cases.forms import CriminalCaseForm
 
 
 # Create a new criminal case
@@ -18,7 +19,7 @@ def home(request):
     officers_on_duty = Officer.objects.filter(duty_status="On Duty")
 
     # Counts for cases
-    open_cases_count = CriminalCase.objects.filter(case_status='active').count()
+    open_cases_count = CriminalCase.objects.filter(Q(case_status='active') | Q(case_status='in_progress')).count()
     closed_cases_count = CriminalCase.objects.filter(case_status='closed').count()
 
     # Counts for criminals
@@ -38,23 +39,6 @@ def home(request):
         'today_cases' :  today_cases,
     }
     return render(request, 'home.html', context)
-
-
-# def login(request):
-#     if request.method == 'POST':
-#         form = LogInForm(request.POST)
-#         if form.is_valid():
-#             username = form.cleaned_data['username']
-#             password = form.cleaned_data['password']
-#             user = authenticate(request, username=username, password=password)
-#             if user is not None:
-#                 login(request, user)
-#                 return redirect('home')
-#             else:
-#                 form.add_error(None, 'Invalid username or password')
-#     else:
-#         form = LogInForm()
-#     return render(request, 'login.html', {'form': form, 'title': 'Login'})
 
 def login(request):
     if request.method == 'POST':
@@ -77,12 +61,16 @@ def logout_view(request):
 @login_required
 def profile_view(request):
     user = request.user
+    officer_rank = user.policeofficers.rank if hasattr(user, 'policeofficers') else 'N/A'
+    officer_full_name = f"{officer_rank} {user.first_name} {user.last_name}"
+    # associated_cases = CriminalCase.objects.filter(case_officer=officer_full_name)
     context = {
         'username': user.username,
         'first_name': user.first_name,
         'last_name': user.last_name,
         'email': user.email,
-        'rank': user.policeofficers.rank if hasattr(user, 'policeofficers') else 'N/A',
+        'rank': officer_rank,
+        # 'associated_cases': associated_cases,
     }
     return render(request, 'profile.html', context)
 

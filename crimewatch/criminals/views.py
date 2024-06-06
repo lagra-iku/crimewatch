@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import CriminalRecord
+from .models import CriminalRecord, CriminalCase
 from .forms import CriminalForm
 from django.contrib.auth.decorators import login_required
 from crimewatch.views import home
@@ -44,13 +44,18 @@ def criminal_list(request):
 def criminal_update(request, pk):
     criminal = get_object_or_404(CriminalRecord, pk=pk)
     if request.method == 'POST':
-        form = CriminalForm(request.POST, instance=criminal)
+        form = CriminalForm(request.POST, request.FILES, instance=criminal)
         if form.is_valid():
             form.save()
             return redirect('criminal_list')
     else:
         form = CriminalForm(instance=criminal)
     return render(request, 'criminal_form.html', {'form': form})
+
+@login_required
+def criminal_detail(request, pk):
+    criminal = get_object_or_404(CriminalRecord, id=pk)
+    return render(request, 'criminal_detail.html', {'criminal': criminal})
 
 
 # Delete a criminal

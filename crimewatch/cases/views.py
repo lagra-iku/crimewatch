@@ -3,6 +3,7 @@ from .models import CriminalCase, CrimeSubcategory
 from .forms import CriminalCaseForm
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 
 
 @login_required
@@ -54,7 +55,7 @@ def case_delete(request, pk):
 
 @login_required
 def open_cases_list(request):
-    cases = CriminalCase.objects.filter(case_status='in-progress')
+    cases = CriminalCase.objects.filter(Q(case_status='active') | Q(case_status='in_progress'))
     return render(request, 'case_filter.html', {'cases': cases, 'title': 'Open Cases'})
 
 

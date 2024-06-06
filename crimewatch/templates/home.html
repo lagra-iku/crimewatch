@@ -49,9 +49,7 @@
                                     <td class="text-capitalize">{{ case.crime_subcategory.name }}</td>
                                     <td class="text-capitalize">{{ case.location_of_crime}}</td>
                                     <td class="text-capitalize">{{ case.case_officer}}</td>
-                                    <td>
-                                        <a href="{% url 'case_update' criminal.pk %}">Edit</a> |
-                                    </td>
+                                    <td><a href="{% url 'case_update' case.id %}"><i class="fa fa-pencil text-black"></i></a></td>
                                 </tr>
                             {% empty %}
                                 <p class="text-success">There are no new cases for today</p>

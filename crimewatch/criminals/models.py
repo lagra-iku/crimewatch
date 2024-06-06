@@ -55,7 +55,7 @@ class CriminalRecord(models.Model):
     mugshot = models.ImageField(upload_to='src/images/', blank=True)
     known_aliases = models.CharField(max_length=255, blank=True)
     associates = models.CharField(max_length=255, blank=True)
-    arresting_officer = models.ForeignKey(Officer, on_delete=models.CASCADE, blank=True)
+    arresting_officer = models.ForeignKey(Officer, on_delete=models.CASCADE, null=True)
     case_number = models.CharField(max_length=9, default=generate_case_number, unique=True)
     is_incarcerated = models.BooleanField(default=True)
     is_wanted = models.BooleanField(default=False)
