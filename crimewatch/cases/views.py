@@ -55,12 +55,7 @@ def case_delete(request, pk):
 
 @login_required
 def open_cases_list(request):
-<<<<<<< HEAD
     cases = CriminalCase.objects.filter(Q(case_status='active') | Q(case_status='in_progress'))
-=======
-    cases = CriminalCase.objects.filter(case_status='in-progress')
-    print(cases)
->>>>>>> 2a4c8bb6533844aaaada739b2c7993e5b5b5e057
     return render(request, 'case_filter.html', {'cases': cases, 'title': 'Open Cases'})
 
 

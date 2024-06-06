@@ -10,11 +10,8 @@ from cases.models import CriminalCase
 from criminals.models import CriminalRecord
 from django.db.models import Q
 from criminals.forms import LogInForm
-<<<<<<< HEAD
 from cases.forms import CriminalCaseForm
-=======
 from django.contrib import messages
->>>>>>> 2a4c8bb6533844aaaada739b2c7993e5b5b5e057
 
 
 # Create a new criminal case
