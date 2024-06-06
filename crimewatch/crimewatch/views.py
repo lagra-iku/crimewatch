@@ -10,7 +10,11 @@ from cases.models import CriminalCase
 from criminals.models import CriminalRecord
 from django.db.models import Q
 from criminals.forms import LogInForm
+<<<<<<< HEAD
 from cases.forms import CriminalCaseForm
+=======
+from django.contrib import messages
+>>>>>>> 2a4c8bb6533844aaaada739b2c7993e5b5b5e057
 
 
 # Create a new criminal case
@@ -49,6 +53,7 @@ def login(request):
             auth_login(request, user)
             return redirect('home')
         else:
+            messages.error(request, 'Invalid username or password, please try again.')
             return render(request, 'login.html', {'error': 'Invalid username or password'})
     return render(request, 'login.html')
 

@@ -4,13 +4,14 @@ import string
 from officers.models import Officer
 # from phonenumber_field.modelfields import PhoneNumberField
 from cases.models import CriminalCase
-
+from django.utils import timezone
 
 def generate_case_number():
     """Helper function to generate a random case number for a criminal record"""
-    letters = string.ascii_letters
+    letter = string.ascii_letters
     numbers = string.digits
-    return ''.join(random.choices(letters, k=2)) + ''.join(random.choices(numbers, k=6))
+    letters = letter.upper()
+    return ''.join(random.choices(letters, k=2)) +'-'+ ''.join(random.choices(numbers, k=6))
 
 class CriminalRecord(models.Model):
     """Criminal's personal information Class"""
@@ -55,10 +56,20 @@ class CriminalRecord(models.Model):
     mugshot = models.ImageField(upload_to='src/images/', blank=True)
     known_aliases = models.CharField(max_length=255, blank=True)
     associates = models.CharField(max_length=255, blank=True)
+<<<<<<< HEAD
     arresting_officer = models.ForeignKey(Officer, on_delete=models.CASCADE, null=True)
     case_number = models.CharField(max_length=9, default=generate_case_number, unique=True)
+=======
+    arresting_officer = models.ForeignKey(Officer, on_delete=models.CASCADE, blank=True)
+    case_number = models.CharField(max_length=10, default=generate_case_number, unique=True)
+>>>>>>> 2a4c8bb6533844aaaada739b2c7993e5b5b5e057
     is_incarcerated = models.BooleanField(default=True)
     is_wanted = models.BooleanField(default=False)
+    
+    def date(self, *args, **kwargs):
+        if self.date_of_arrest and timezone.is_naive(self.date_of_arrest):
+            self.date_of_arrest = timezone.make_aware(self.date_of_arrest, timezone.get_current_timezone())
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return f"Case Number: {self.case_number}, Name: {self.first_name} {self.middle_name} {self.surname}, Arresting Officer: {self.arresting_officer}, Date: {self.date_of_birth}, {self.tribe}, {self.religion}, {self.marital_status}, {self.height_in_meters}, {self.weight_in_kg}"

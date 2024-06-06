@@ -4,7 +4,7 @@
 <div class="container-fluid p-5">
     <div class="row mb-5">
         <div class="col-6">
-            <h1 class="fw-bold fs-2">{{ title}}</h1>
+            <h1 class="fw-bold fs-2">{{ title }}</h1>
         </div>
     </div>
     <div class="row">
@@ -22,7 +22,7 @@
                 {% for case in cases %}
                     <tr>
                         <td class="text-capitalize">{{ case.case_number }}</td>
-                        <td class="text-capitalize">{{ case.event_date}}</td>
+                        <td class="text-capitalize">{{ case.event_date }}</td>
                         <td class="text-capitalize">{{ case.crime_type }}</td>
                         <td class="text-capitalize">{{ case.case_status }}</td>
                         <td>
@@ -31,7 +31,9 @@
                         </td>
                     </tr>
                 {% empty %}
-                    <p class="text-danger">No cases available.</p>
+                    <tr>
+                        <td colspan="5" class="text-danger text-center">No cases available.</td>
+                    </tr>
                 {% endfor %}
             </tbody>
         </table>

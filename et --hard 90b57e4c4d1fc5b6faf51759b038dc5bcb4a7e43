@@ -1,0 +1,418 @@
+[33mcommit 6f79da37dcc2ca27e4085c3bf0eb450e6eb45b84[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: 90b57e4 853f896
+Author: Olisajioke <chijioke914@gmail.com>
+Date:   Thu May 30 15:27:59 2024 +0100
+
+    updating session management
+
+[33mcommit 90b57e4c4d1fc5b6faf51759b038dc5bcb4a7e43[m
+Author: Olisajioke <chijioke914@gmail.com>
+Date:   Thu May 30 15:18:49 2024 +0100
+
+    Updating session login
+
+[33mcommit 853f896b1acdea7c1d01c31adfcf724c25c06a57[m
+Author: Grace O. Nweke <lagra2001@gmail.com>
+Date:   Thu May 30 15:17:48 2024 +0100
+
+    Updating nav links URLS
+
+[33mcommit 075f13b6f72204cff4f34a8cb9a77e017aee19b8[m
+Merge: 0672b0a 6587aeb
+Author: Grace O. Nweke <lagra2001@gmail.com>
+Date:   Thu May 30 15:10:23 2024 +0100
+
+    Merge branch 'main' of https://github.com/lagra-iku/crimewatch
+
+[33mcommit 6587aebdd8b3b0cb280320819afbd0a12a0bb61f[m
+Author: Olisajioke <chijioke914@gmail.com>
+Date:   Thu May 30 15:07:15 2024 +0100
+
+    Adding session termination after inactivity
+
+[33mcommit 0672b0a700a456bc7a89d6daf68f8a98a3a53f7b[m
+Author: Grace O. Nweke <lagra2001@gmail.com>
+Date:   Thu May 30 15:04:10 2024 +0100
+
+    Merging changes
+
+[33mcommit fd8552d4467367b952f36f99807969c87d36234b[m
+Merge: 17e1150 97f01ad
+Author: Grace O. Nweke <lagra2001@gmail.com>
+Date:   Thu May 30 15:03:54 2024 +0100
+
+    Merge branch 'main' of https://github.com/lagra-iku/crimewatch
+
+[33mcommit 17e115099da24facec65b263a84120eb3ebe0237[m
+Author: Grace O. Nweke <lagra2001@gmail.com>
+Date:   Thu May 30 15:02:11 2024 +0100
+
+    database change
+
+[33mcommit 97f01ad4ff44bca8e98c96936dbfd92268a2f37f[m
+Merge: 2e9904c 1f0cba9
+Author: Olisajioke <chijioke914@gmail.com>
+Date:   Thu May 30 14:39:41 2024 +0100
+
+    Updating Criminarecords models
+
+[33mcommit 2e9904cd21819035c7da1965274335acba434e43[m
+Author: Olisajioke <chijioke914@gmail.com>
+Date:   Thu May 30 14:38:28 2024 +0100
+
+    Updating Criminarecords models
+
+[33mcommit 1f0cba9ecc07c41df801aed0a7523d236d81e14e[m
+Author: Grace O. Nweke <lagra2001@gmail.com>
+Date:   Thu May 30 14:20:51 2024 +0100
+
+    Incorporating login details and buttons
+
+[33mcommit cf6c474ceac16da47773843c6e1db70dbd5655fb[m
+Author: Grace O. Nweke <lagra2001@gmail.com>
+Date:   Thu May 30 13:51:57 2024 +0100
+
+    applying login details to navbar
+
+[33mcommit 8ab590d27c6247ab4dba614f6ef92e818a7e7337[m
+Merge: 675ace6 663b6c9
+Author: Olisajioke <chijioke914@gmail.com>
+Date:   Thu May 30 11:27:05 2024 +0100
+
+    Merge branch 'main' of https://github.com/lagra-iku/crimewatch
+
+[33mcommit 675ace602ba1b7706f197c214d08825e6c9f4e8b[m
+Author: Olisajioke <chijioke914@gmail.com>
+Date:   Thu May 30 11:26:55 2024 +0100
+
+    profile and login views
+
+[33mcommit 663b6c9b74702abd9d6fd824fbe3994e0a677bee[m
+Author: Grace O. Nweke <lagra2001@gmail.com>
+Date:   Thu May 30 11:25:21 2024 +0100
+
+    Merging all changes from both working partners
+
+[33mcommit 4bff60f935f9723df2e57085cfc288a3d2d2d248[m
+Merge: 4b048da b21e6ff
+Author: Grace O. Nweke <lagra2001@gmail.com>
+Date:   Thu May 30 10:23:21 2024 +0100
+
+    Merge remote-tracking branch 'origin/main'
+    
+    Merging my local changes to login files from remote branch
+
+[33mcommit 4b048daea7d412c20b1bacacd6fddbbbcd525a0a[m
+Author: Grace O. Nweke <lagra2001@gmail.com>
+Date:   Thu May 30 10:08:48 2024 +0100
+
+    adding a requirements.txt
+
+[33mcommit b21e6fffaa95803ab500515372aaee710cf48b2c[m
+Author: Olisajioke <chijioke914@gmail.com>
+Date:   Thu May 30 10:07:34 2024 +0100
+
+    Login views and Profile views, login_required decorator added
+
+[33mcommit 290ff17f35cbe06b489c203acbdec9efbad1f58a[m
+Author: Olisajioke <chijioke914@gmail.com>
+Date:   Thu May 30 10:06:29 2024 +0100
+
+    login and profile
+
+[33mcommit f06340629a2f0b85e7e22223a01b1343184048f8[m
+Merge: 4d4d86e 9dd6c84
+Author: Olisajioke <chijioke914@gmail.com>
+Date:   Thu May 30 09:40:40 2024 +0100
+
+    Merge branch 'main' of https://github.com/lagra-iku/crimewatch
+
+[33mcommit 4d4d86e63331fc6365bf3e8948e3c507e34f6171[m
+Merge: 1bb8fb5 296e344
+Author: Olisajioke <chijioke914@gmail.com>
+Date:   Thu May 30 09:40:27 2024 +0100
+
+    login and profile views
+
+[33mcommit 9dd6c84afddd1989e145811717558204a2814a6b[m
+Author: Grace O. Nweke <lagra2001@gmail.com>
+Date:   Thu May 30 09:35:44 2024 +0100
+
+    making the app mobile responsive
+
+[33mcommit 1bb8fb56584e353760f8f269c56d1f5b1f1eb137[m
+Merge: 25761ee 3f9256a
+Author: Olisajioke <chijioke914@gmail.com>
+Date:   Thu May 30 08:44:12 2024 +0100
+
+    editing login page and profile  page
+
+[33mcommit 296e344187a0e2556b6add9343f2d11b4a84cae1[m
+Author: Grace O. Nweke <lagra2001@gmail.com>
+Date:   Thu May 30 02:23:31 2024 +0100
+
+    Adding search functionalities
+
+[33mcommit 00a367953342292f0715261f40970105154eb6aa[m
+Author: Grace O. Nweke <lagra2001@gmail.com>
+Date:   Thu May 30 01:48:47 2024 +0100
+
+    resolving dashboard template errors
+
+[33mcommit 6f269b2a5f82a7b71182d93072ba94cc565cb1f8[m
+Author: Grace O. Nweke <lagra2001@gmail.com>
+Date:   Thu May 30 01:46:00 2024 +0100
+
+    Creating the dashboard queries
+
+[33mcommit 25761ee9555e96dfbdc4d1abc28caca001d7ac1e[m
+Author: Olisajioke <chijioke914@gmail.com>
+Date:   Wed May 29 22:24:42 2024 +0100
+
+    adding Login View, Html, model and form
+
+[33mcommit 3f9256a9a6b3c83840bbb4ff282b4bc8546a5582[m
+Author: Grace O. Nweke <lagra2001@gmail.com>
+Date:   Wed May 29 22:24:10 2024 +0100
+
+    Resolving all case forms and views
+
+[33mcommit bb892a2102d671a44e4a5ad15d1ee768a6789e12[m
+Author: Olisajioke <chijioke914@gmail.com>
+Date:   Wed May 29 22:18:11 2024 +0100
+
+    adding Login view, Html, model and form
+
+[33mcommit 58b671fe4816cd40c418c3a797f6b36bb64a2e9f[m
+Author: Olisajioke <chijioke914@gmail.com>
+Date:   Wed May 29 21:38:41 2024 +0100
+
+    Updating Admin
+
+[33mcommit f9bff38165a7d163d20df96d3ea8858ac61d1ee2[m
+Merge: 4f55e1a 36e285e
+Author: Olisajioke <chijioke914@gmail.com>
+Date:   Wed May 29 20:56:57 2024 +0100
+
+    Merge branch 'main' of https://github.com/lagra-iku/crimewatch
+
+[33mcommit 4f55e1aed63450356bc55dbc8fa61ed95f4c37ef[m
+Author: Olisajioke <chijioke914@gmail.com>
+Date:   Wed May 29 20:46:24 2024 +0100
+
+    admin edit
+
+[33mcommit 36e285eb08fc9f4cb6dc3263f12e8b65aee28f6d[m
+Author: Grace O. Nweke <lagra2001@gmail.com>
+Date:   Wed May 29 20:12:57 2024 +0100
+
+    Resolving officers forms and pages
+
+[33mcommit 50a219e389d1cae8691c758e6e050fd2de816039[m
+Author: Olisajioke <chijioke914@gmail.com>
+Date:   Wed May 29 17:06:37 2024 +0100
+
+    editing criminal records
+
+[33mcommit ecd85e494e7e6bb65e88b0e7ed3bb264a4443caa[m
+Author: Olisajioke <chijioke914@gmail.com>
+Date:   Wed May 29 16:55:10 2024 +0100
+
+    editing criminals app
+
+[33mcommit 1bd625ed1f946782773fabf4274badc102739897[m
+Merge: 6252f79 02bef81
+Author: Olisajioke <chijioke914@gmail.com>
+Date:   Wed May 29 16:15:07 2024 +0100
+
+    migrations
+
+[33mcommit 6252f79ae124b4332a3344cedcbd0fe930a02d51[m
+Author: Olisajioke <chijioke914@gmail.com>
+Date:   Wed May 29 16:08:40 2024 +0100
+
+    admin edits and models edits
+
+[33mcommit 02bef8131c54fc51b5b13e449dafdc7677563d33[m
+Author: Grace O. Nweke <lagra2001@gmail.com>
+Date:   Wed May 29 15:48:21 2024 +0100
+
+    editing and incorporating criminal forms and pages
+
+[33mcommit b935ba4fb0a84ff01085814ffc80a8e3b900f1a6[m
+Author: Grace O. Nweke <lagra2001@gmail.com>
+Date:   Wed May 29 13:16:34 2024 +0100
+
+    incoporating forms and views
+
+[33mcommit d852fcb3872e33054eb7b740abdf6c5091522690[m
+Author: Grace O. Nweke <lagra2001@gmail.com>
+Date:   Wed May 29 12:12:23 2024 +0100
+
+    Restructuring the project to different apps
+
+[33mcommit 5a60a2550e3187f1fb29331690b8da01679da87f[m
+Author: Olisajioke <chijioke914@gmail.com>
+Date:   Tue May 28 23:12:09 2024 +0100
+
+    editing models and forms
+
+[33mcommit bb7ec21397a2131e254c246f8283599a7346dae8[m
+Merge: 548ffe9 4343146
+Author: Olisajioke <chijioke914@gmail.com>
+Date:   Tue May 28 20:26:54 2024 +0100
+
+    Merge branch 'main' of https://github.com/lagra-iku/crimewatch
+
+[33mcommit 548ffe97d963a0991803ce1b8355972f2b86d390[m
+Author: Olisajioke <chijioke914@gmail.com>
+Date:   Tue May 28 20:24:02 2024 +0100
+
+    forms
+
+[33mcommit 4343146b56ccc5897d148e441b0345ecb1bff18e[m
+Author: Grace O. Nweke <lagra2001@gmail.com>
+Date:   Tue May 28 16:04:40 2024 +0100
+
+    redesigning login screen
+
+[33mcommit 2d964decbf50a96f0637c070ad93cbfd4261ee8f[m
+Author: Grace O. Nweke <lagra2001@gmail.com>
+Date:   Tue May 28 15:06:29 2024 +0100
+
+    Resolving URLs to their views
+
+[33mcommit badead4c31c393099a1e2ca24bed9136ce31108e[m
+Merge: 00dc779 3cbea5b
+Author: Grace O. Nweke <lagra2001@gmail.com>
+Date:   Tue May 28 14:49:21 2024 +0100
+
+    Merge branch 'main' of https://github.com/lagra-iku/crimewatch
+
+[33mcommit 00dc779c4edf5badbfba19e8d2461e0045705e45[m
+Author: Grace O. Nweke <lagra2001@gmail.com>
+Date:   Tue May 28 14:38:59 2024 +0100
+
+    Incorporating case views
+
+[33mcommit 3cbea5baa725327e6be1ff03a93d510bfa09415c[m
+Author: Olisajioke <chijioke914@gmail.com>
+Date:   Tue May 28 14:23:38 2024 +0100
+
+    models
+
+[33mcommit 462866fc9493770d87309e850d09ca4a9b2c54c1[m
+Merge: 58593fc 11ede3b
+Author: Olisajioke <chijioke914@gmail.com>
+Date:   Tue May 28 09:23:59 2024 +0100
+
+    models
+
+[33mcommit 11ede3b083656374269fc339afcdb9a706a4b170[m
+Author: Grace O. Nweke <lagra2001@gmail.com>
+Date:   Mon May 27 23:43:03 2024 +0100
+
+    Connecting app to bootstrap
+
+[33mcommit 58593fcf07aaa0a20e2076a480ae8a395e79b787[m
+Merge: 9acbd90 bdab042
+Author: Olisajioke <chijioke914@gmail.com>
+Date:   Mon May 27 21:09:44 2024 +0100
+
+    models
+
+[33mcommit 9acbd90a1991d955a4a6e7f8321e8643c1ef55e9[m
+Author: Olisajioke <chijioke914@gmail.com>
+Date:   Mon May 27 21:07:32 2024 +0100
+
+    models
+
+[33mcommit bdab0420738f072a1fe2f403e792c2d793a0eb6a[m
+Author: Grace O. Nweke <lagra2001@gmail.com>
+Date:   Mon May 27 21:05:31 2024 +0100
+
+    Removing tailwindcss and heroicons
+
+[33mcommit b7bf2344c8dbfbbc29f4fdfd5d5f4aa75e620864[m
+Merge: 7894308 80d2434
+Author: Grace O. Nweke <lagra2001@gmail.com>
+Date:   Mon May 27 21:01:15 2024 +0100
+
+    Merge branch 'main' of https://github.com/lagra-iku/crimewatch
+
+[33mcommit 789430831a71674d20dcea6fb77d0f4304a5e3df[m
+Author: Grace O. Nweke <lagra2001@gmail.com>
+Date:   Mon May 27 20:58:23 2024 +0100
+
+    removing tailwindcss and heroicons
+
+[33mcommit 80d24349b4acf4285a75a97479eb5e85030b1eff[m
+Author: Olisajioke <chijioke914@gmail.com>
+Date:   Mon May 27 20:53:56 2024 +0100
+
+    updating the models
+
+[33mcommit ee137cf079166ea8fda5e5cc83095f167c1322a9[m
+Merge: 51650a8 c85e08e
+Author: Olisajioke <chijioke914@gmail.com>
+Date:   Sat May 25 22:03:08 2024 +0100
+
+    mergefiles
+
+[33mcommit 51650a8690138811de836ff0dd22bdd30ad204a7[m
+Author: Olisajioke <chijioke914@gmail.com>
+Date:   Sat May 25 21:59:11 2024 +0100
+
+    Models
+
+[33mcommit c85e08ef8a723bd4cca4013e3bbac6e2379c4ce2[m
+Merge: 26eab89 936b38b
+Author: Grace Nweke <44851676+lagra-iku@users.noreply.github.com>
+Date:   Sat May 25 20:04:47 2024 +0100
+
+    Merge pull request #1 from lagra-iku/createtemplates
+    
+    Create dashboard template using tailwindcss and heroicons
+
+[33mcommit 936b38b65d1f7a2f3dddbc15c3c991cb36dae8c5[m[33m ([m[1;31morigin/createtemplates[m[33m)[m
+Merge: e4edceb 26eab89
+Author: Grace O. Nweke <lagra2001@gmail.com>
+Date:   Sat May 25 19:53:14 2024 +0100
+
+    Merge branch 'main' of https://github.com/lagra-iku/crimewatch into createtemplates
+
+[33mcommit e4edceb6182b0722ba31fa4da3c0b369e13202bf[m
+Author: Grace O. Nweke <lagra2001@gmail.com>
+Date:   Sat May 25 19:50:27 2024 +0100
+
+    Creating home page with tailwindcss and heroicons
+
+[33mcommit 26eab89cb1b552e85c71bc87652538947f978687[m
+Author: Olisajioke <chijioke914@gmail.com>
+Date:   Fri May 24 23:00:16 2024 +0100
+
+    Models, Forms, Views
+
+[33mcommit 638db13693e50bd40b6631746f6c3557bd79d41b[m
+Author: Olisajioke <chijioke914@gmail.com>
+Date:   Fri May 24 22:54:55 2024 +0100
+
+    Models, Some Views and Some forms
+
+[33mcommit d6a6f4b83c0cbfbd05153a238284668ed017a1ac[m
+Author: Grace O. Nweke <lagra2001@gmail.com>
+Date:   Thu May 23 22:21:08 2024 +0100
+
+    Incorporating Django framwork and creating the basic file structure
+
+[33mcommit 6a3590644d80cb7af703165870af804509b3d165[m
+Author: Olisajioke <chijioke914@gmail.com>
+Date:   Tue May 21 21:45:49 2024 +0100
+
+    Framework
+
+[33mcommit 436827527c9b144c903adca59a5c36320a9f2e5d[m
+Author: Grace Nweke <44851676+lagra-iku@users.noreply.github.com>
+Date:   Mon May 20 11:43:04 2024 +0100
+
+    Initial commit
